@@ -38,9 +38,9 @@ module BPGlass
       @tipo = array[15]
     end
 
-    %W[saten laminado].each do |glass_type|
-      define_method("#{glass_type}?") do
-        [vidrio_1, vidrio_2].any? { _1.downcase.include? glass_type }
+    %W[saten].each do |tipo_cristal|
+      define_method("#{tipo_cristal}?") do
+        [vidrio_1, vidrio_2].any? { BPGlass::ESPECIAL_ID[tipo_cristal].include? _1 }
       end
     end
   end

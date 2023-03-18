@@ -62,4 +62,53 @@ describe BPGlass::Posicion do
       it { expect(posicion.metros_lineales).to eq(2.1) }
     end
   end
+
+  context "cristal especial" do
+    let(:pos_incoloro) {
+      described_class.new([
+        1,
+        "100 - Incoloro 04 mm",
+        "12 - Sep. 11.5 mm BR OSC",
+        "100 - Incoloro 04 mm",
+        "10012100",
+        "1",
+        "773",
+        "254",
+        "V01D205 TB.F2.A",
+        "13775",
+        "INC 4//Sep 11,5 BR OSC//INC 4",
+        "",
+        "0.2",
+        "2.1",
+        "5.1",
+        "TP",
+      ])
+    }
+
+    let(:pos_saten) {
+      described_class.new([
+        1,
+        "100 - Incoloro 04 mm",
+        "12 - Sep. 11.5 mm BR OSC",
+        "260 - Saten 04 mm",
+        "10012260",
+        "1",
+        "773",
+        "254",
+        "V01D205 TB.F2.A",
+        "13775",
+        "INC 4//Sep 11,5 BR OSC//SATEN 4",
+        "",
+        "0.2",
+        "2.1",
+        "5.1",
+        "TP",
+      ])
+    }
+
+    describe "#saten?" do
+      it { expect(pos_incoloro.saten?).to eq(false) }
+      it { expect(pos_saten.saten?).to eq(true) }
+    end
+  end
 end
