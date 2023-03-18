@@ -22,7 +22,7 @@ module BPGlass
         total_posiciones = ot.piezas_tp + ot.piezas_dim
 
         1.upto(total_posiciones) do |i|
-          idx = 10 + i #offset
+          idx = 9 + i #offset
           ot.posiciones << Posicion.new(foo.row(idx))
         end
       end
