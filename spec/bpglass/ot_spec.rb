@@ -33,6 +33,12 @@ describe BPGlass::OT do
       end
     end
 
+    describe "#cristal_especial" do
+      it do
+        expect(ot.cristal_especial).to eq("SAT(1)")
+      end
+    end
+
     describe "#to_a" do
       xit "returns the correct array structure" do
         pending "blah"

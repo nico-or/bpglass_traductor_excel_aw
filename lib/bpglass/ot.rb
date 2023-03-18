@@ -77,8 +77,23 @@ module BPGlass
       Date.today.strftime("%d-%m-%y")
     end
 
+    def cristal_especial
+      output = ""
+
+      BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
+        count = posiciones.count do |posicion|
+          posicion.send("#{tipo_cristal}?".to_sym)
+        end
+
+        unless count.zero?
+          output += "#{BPGlass::ESPECIAL_ALIAS[tipo_cristal]}(#{count})"
+        end
+      end
+
+      output
+    end
+
     %W[
-      cristal_especial
       forma
       tps_fabricados
       dims_fabricados
