@@ -18,6 +18,13 @@ module BPGlass
 
         ot.piezas_tp = foo.cell(*Roo::Utils.extract_coordinate("H4"))
         ot.piezas_dim = foo.cell(*Roo::Utils.extract_coordinate("I4"))
+
+        total_posiciones = ot.piezas_tp + ot.piezas_dim
+
+        1.upto(total_posiciones) do |i|
+          idx = 10 + i #offset
+          ot.posiciones << Posicion.new(foo.row(idx))
+        end
       end
     end
 
@@ -31,7 +38,11 @@ module BPGlass
       :metros_cuadrados_tp, :metros_cuadrados_dim,
     )
 
+    attr_reader :posiciones
+
     def initialize
+      @posiciones = []
+
       yield self
     end
 
@@ -60,18 +71,6 @@ module BPGlass
         metros_lineales_tp_fabricados,
         metros_lineales_dim, #metros_lineales_dim_programados,
       ]
-    end
-
-    %W[
-      piezas_tp piezas_dim
-      metros_cuadrados_tp metros_cuadrados_dim
-      metros_lineales_tp metros_lineales_dim
-    ].each do |method|
-      define_method(method) do
-        foo = self.instance_variable_get("@#{method}")
-        return "" if foo.zero?
-        foo
-      end
     end
 
     def fecha_ingreso

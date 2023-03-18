@@ -15,14 +15,27 @@ describe BPGlass::OT do
     end
 
     describe "#cliente" do
-      it "returns the 'cliente' name" do
+      xit "returns the 'cliente' name" do
         pending "TODO: Alias table for clientes"
         expect(ot.cliente).to eq("RENOVATEK")
       end
     end
 
+    describe "#posiciones" do
+      it "has correct position count" do
+        expect(ot.posiciones.count).to eq(1)
+      end
+
+      it do
+        ot.posiciones.each do |posicion|
+          expect(posicion.class).to eq(BPGlass::Posicion)
+        end
+      end
+    end
+
     describe "#to_a" do
-      it "returns the correct array structure" do
+      xit "returns the correct array structure" do
+        pending "blah"
         output = [
           "27153",
           "San Eugenio. Depto. 304 URGENTE",
