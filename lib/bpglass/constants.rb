@@ -15,4 +15,8 @@ module BPGlass
     "saten" => "SAT",
     "laminado" => "LAM",
   }
+
+  CLIENTE_ALIAS = {
+    "FABRICA DE PUERTAS Y VENTANAS RENOVA TEK LIMITADA" => "RENOVATEK",
+  }
 end

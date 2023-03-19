@@ -15,8 +15,7 @@ describe BPGlass::OT do
     end
 
     describe "#cliente" do
-      xit "returns the 'cliente' name" do
-        pending "TODO: Alias table for clientes"
+      it "returns the 'cliente' name" do
         expect(ot.cliente).to eq("RENOVATEK")
       end
     end

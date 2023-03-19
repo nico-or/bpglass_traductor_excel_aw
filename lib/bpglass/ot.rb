@@ -6,7 +6,10 @@ module BPGlass
       self.new do |ot|
         ot.id = foo.cell(*Roo::Utils.extract_coordinate("J2"))
         ot.obra = foo.cell(*Roo::Utils.extract_coordinate("C6"))
-        ot.cliente = foo.cell(*Roo::Utils.extract_coordinate("C4"))
+
+        original_name = foo.cell(*Roo::Utils.extract_coordinate("C4"))
+        alias_name = BPGlass::CLIENTE_ALIAS[original_name.strip]
+        ot.cliente = alias_name
 
         ot.fecha_despacho = foo.cell(*Roo::Utils.extract_coordinate("N4"))
 
