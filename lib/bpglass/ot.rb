@@ -50,17 +50,17 @@ module BPGlass
       yield self
     end
 
-    def to_a
+    def tp_array
       [
         id,
         obra,
         cristal_especial,
         forma,
         cliente,
-        piezas_tp.then { _1.zero? ? "" : _1 }, #tp_original,
-        piezas_dim.then { _1.zero? ? "" : _1 }, #dim_original,
-        piezas_tp.then { _1.zero? ? "" : _1 }, #tp_original,
-        piezas_dim.then { _1.zero? ? "" : _1 }, #dim_original,
+        piezas_tp, #tp_original,
+        "", #dim_original,
+        piezas_tp, #tp_original,
+        "", #dim_original,
         tps_fabricados,
         dims_fabricados,
         minutos,
@@ -71,14 +71,41 @@ module BPGlass
         fecha_despacho,
         control_calidad,
         estado_actual_produccion,
-        metros_lineales_tp.then { _1.zero? ? "" : _1 }, #metros_lineales_programados,
+        metros_lineales_tp, #metros_lineales_programados,
         metros_lineales_tp_fabricados,
-        metros_lineales_dim.then { _1.zero? ? "" : _1 }, #metros_lineales_dim_programados,
+        "", #metros_lineales_dim_programados,
+      ]
+    end
+
+    def dim_array
+      [
+        id,
+        obra,
+        "DIMENSIONADO",
+        forma,
+        cliente,
+        "", #tp_original,
+        piezas_dim, #dim_original,
+        "", #tp_original,
+        piezas_dim, #dim_original,
+        tps_fabricados,
+        dims_fabricados,
+        minutos,
+        metros_cuadrados_dim, #metros_cuadrados,
+        fecha_ingreso,
+        fecha_fabricacion_real,
+        fecha_fabricacion_planificada,
+        fecha_despacho,
+        control_calidad,
+        estado_actual_produccion,
+        "", #metros_lineales_programados,
+        metros_lineales_tp_fabricados,
+        metros_lineales_dim, #metros_lineales_dim_programados,
       ]
     end
 
     def fecha_ingreso
-      Date.today.strftime("%d-%m-%y")
+      Date.today.strftime("%d-%m-%Y")
     end
 
     def cristal_especial
