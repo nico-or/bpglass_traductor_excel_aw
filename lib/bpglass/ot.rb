@@ -57,10 +57,10 @@ module BPGlass
         cristal_especial,
         forma,
         cliente,
-        piezas_tp, #tp_original,
-        piezas_dim, #dim_original,
-        piezas_tp, #tp_original,
-        piezas_dim, #dim_original,
+        piezas_tp.then { _1.zero? ? "" : _1 }, #tp_original,
+        piezas_dim.then { _1.zero? ? "" : _1 }, #dim_original,
+        piezas_tp.then { _1.zero? ? "" : _1 }, #tp_original,
+        piezas_dim.then { _1.zero? ? "" : _1 }, #dim_original,
         tps_fabricados,
         dims_fabricados,
         minutos,
@@ -71,9 +71,9 @@ module BPGlass
         fecha_despacho,
         control_calidad,
         estado_actual_produccion,
-        metros_lineales_tp, #metros_lineales_programados,
+        metros_lineales_tp.then { _1.zero? ? "" : _1 }, #metros_lineales_programados,
         metros_lineales_tp_fabricados,
-        metros_lineales_dim, #metros_lineales_dim_programados,
+        metros_lineales_dim.then { _1.zero? ? "" : _1 }, #metros_lineales_dim_programados,
       ]
     end
 

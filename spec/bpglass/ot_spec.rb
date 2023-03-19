@@ -40,7 +40,6 @@ describe BPGlass::OT do
 
     describe "#to_a" do
       it "returns the correct array structure" do
-        pending "blah"
         output = [
           "27153",
           "San Eugenio. Depto. 304 URGENTE",
