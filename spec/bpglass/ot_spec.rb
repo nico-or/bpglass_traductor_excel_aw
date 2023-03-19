@@ -40,7 +40,7 @@ describe BPGlass::OT do
     end
 
     describe "#to_a" do
-      xit "returns the correct array structure" do
+      it "returns the correct array structure" do
         pending "blah"
         output = [
           "27153",
@@ -66,6 +66,13 @@ describe BPGlass::OT do
       it { expect(ot.piezas_tp).to eq(108) }
       it { expect(ot.piezas_dim).to eq(0) }
       it { expect(ot.posiciones.count).to eq(78) }
+    end
+
+    describe "#cristal_especial" do
+      it do
+        output = "LAM(31) SAT(4)"
+        expect(ot.cristal_especial).to eq(output)
+      end
     end
   end
 end

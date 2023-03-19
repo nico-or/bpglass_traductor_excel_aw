@@ -79,19 +79,19 @@ module BPGlass
     end
 
     def cristal_especial
-      output = ""
+      output = []
 
       BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
-        count = posiciones.count do |posicion|
-          posicion.send("#{tipo_cristal}?".to_sym)
-        end
+        count = posiciones
+          .select { |posicion| posicion.send("#{tipo_cristal}?".to_sym) }
+          .sum(&:piezas)
 
         unless count.zero?
-          output += "#{BPGlass::ESPECIAL_ALIAS[tipo_cristal]}(#{count})"
+          output << "#{BPGlass::ESPECIAL_ALIAS[tipo_cristal]}(#{count})"
         end
       end
 
-      output
+      output.sort.join(" ")
     end
 
     %W[
