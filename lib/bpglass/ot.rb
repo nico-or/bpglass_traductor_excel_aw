@@ -19,11 +19,12 @@ module BPGlass
         ot.piezas_tp = foo.cell(*Roo::Utils.extract_coordinate("H4"))
         ot.piezas_dim = foo.cell(*Roo::Utils.extract_coordinate("I4"))
 
-        total_posiciones = ot.piezas_tp + ot.piezas_dim
-
-        1.upto(total_posiciones) do |i|
-          idx = 9 + i #offset
-          ot.posiciones << Posicion.new(foo.row(idx))
+        idx = 10
+        loop do
+          row = foo.row(idx)
+          break if [nil, ""].include? row[2]
+          ot.posiciones << Posicion.new(row)
+          idx += 1
         end
       end
     end

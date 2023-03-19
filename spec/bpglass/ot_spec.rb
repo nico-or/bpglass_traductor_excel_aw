@@ -1,5 +1,5 @@
 describe BPGlass::OT do
-  context "when creating from sample XLSX file" do
+  context "pedido simple" do
     let(:ot) { described_class.from_xlsx("./spec/fixtures/27153-AW-18-01-2023.xlsx") }
 
     describe "#id" do
@@ -56,6 +56,16 @@ describe BPGlass::OT do
 
         expect(ot.to_a).to eq(output)
       end
+    end
+  end
+
+  context "pedido grande" do
+    let(:ot) { described_class.from_xlsx("./spec/fixtures/27135-AW-02-02-2023.xlsx") }
+
+    describe "#from_xlsx" do
+      it { expect(ot.piezas_tp).to eq(108) }
+      it { expect(ot.piezas_dim).to eq(0) }
+      it { expect(ot.posiciones.count).to eq(78) }
     end
   end
 end
