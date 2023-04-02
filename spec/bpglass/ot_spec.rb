@@ -82,7 +82,7 @@ describe BPGlass::OT do
         output = [
           "27138",
           "HC LOS NOGALES, CASTAÑOS, CASAS 4,52,48,46",
-          "", "",
+          "SAT(2)", "",
           "RENOVATEK",
           44, "", 44, "",
           "", "", "",
