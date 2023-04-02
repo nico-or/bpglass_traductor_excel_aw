@@ -104,6 +104,13 @@ module BPGlass
       ]
     end
 
+    def to_tsv
+      out = []
+      out << tp_array unless piezas_tp.zero?
+      out << dim_array unless piezas_dim.zero?
+      out.map { _1.join("\t") }
+    end
+
     def fecha_ingreso
       Date.today.strftime("%d-%m-%Y")
     end
