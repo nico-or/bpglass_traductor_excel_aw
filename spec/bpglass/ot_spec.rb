@@ -117,4 +117,32 @@ describe BPGlass::OT do
       end
     end
   end
+
+  context "pedido con forma" do
+    let(:ot) { described_class.from_xlsx("./spec/fixtures/25766-AW-03-11-2022.xlsx") }
+
+    describe "#posiciones" do
+      it "has correct position count" do
+        expect(ot.posiciones.count).to eq(7)
+      end
+    end
+
+    describe "#tp_array" do
+      it "returns the correct array structure" do
+        output = [
+          "25766",
+          "RTK 5558 HC AYLEEN DUARTE",
+          "CLEAR(3)", "FORMA(3)",
+          "RENOVATEK",
+          13, "", 13, "",
+          "", "", "",
+          8.2, "", "", "", "03-11-2022", # "area", "today", "", "", "entrega",
+          "", "",
+          37.8, "", "", #"mtl tp", "", "mtl dim"
+        ]
+
+        expect(ot.tp_array).to eq(output)
+      end
+    end
+  end
 end

@@ -127,8 +127,15 @@ module BPGlass
       output.sort.join(" ")
     end
 
+    def forma
+      count = posiciones
+        .select(&:forma?)
+        .sum(&:piezas)
+
+      count.zero? ? "" : "FORMA(#{count})"
+    end
+
     %W[
-      forma
       tps_fabricados
       dims_fabricados
       minutos

@@ -46,6 +46,10 @@ module BPGlass
       @tipo.eql? "DIM"
     end
 
+    def forma?
+      ![nil, ""].include?(forma)
+    end
+
     BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
       define_method("#{tipo_cristal}?") do
         [vidrio_1, vidrio_2].any? { BPGlass::ESPECIAL_ID[tipo_cristal].include? _1 }
