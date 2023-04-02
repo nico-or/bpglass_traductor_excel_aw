@@ -25,7 +25,7 @@ module BPGlass
         idx = 10
         loop do
           row = foo.row(idx)
-          break if [nil, ""].include? row[2]
+          break if [nil, ""].include? row[1]
           ot.posiciones << Posicion.new(row)
           idx += 1
         end

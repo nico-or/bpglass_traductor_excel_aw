@@ -110,5 +110,11 @@ describe BPGlass::OT do
         expect(ot.dim_array).to eq(output)
       end
     end
+
+    describe "#initialize" do
+      it "creates the correct amount of posiciones" do
+        expect(ot.posiciones.count).to eq(48)
+      end
+    end
   end
 end
