@@ -111,10 +111,6 @@ module BPGlass
       out.map { _1.join("\t") }
     end
 
-    def fecha_ingreso
-      Date.today.strftime("%d-%m-%Y")
-    end
-
     def cristal_especial
       output = []
 
@@ -136,6 +132,7 @@ module BPGlass
       tps_fabricados
       dims_fabricados
       minutos
+      fecha_ingreso
       fecha_fabricacion_real
       fecha_fabricacion_planificada
       control_calidad

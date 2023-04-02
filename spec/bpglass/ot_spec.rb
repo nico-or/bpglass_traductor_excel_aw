@@ -47,7 +47,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           1, "", 1, "",
           "", "", "",
-          0.8, Date.today.strftime("%d-%m-%Y"), "", "", "18-01-2023", # "area", "today", "", "", "entrega",
+          0.8, "", "", "", "18-01-2023", # "area", "today", "", "", "entrega",
           "", "",
           3.6, "", "", #"mtl tp", "", "mtl dim"
         ]
@@ -86,7 +86,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           44, "", 44, "",
           "", "", "",
-          31, Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
+          31, "", "", "", "23-01-2023",
           "", "",
           159.3, "", "",
         ]
@@ -103,7 +103,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           "", 8, "", 8,
           "", "", "",
-          2.1, Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
+          2.1, "", "", "", "23-01-2023",
           "", "",
           "", "", 16.5,
         ]
