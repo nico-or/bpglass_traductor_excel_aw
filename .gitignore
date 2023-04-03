@@ -1,3 +1,4 @@
 Archivos AW
-out.tsv
+*.tsv
+*.csv
 *lock*

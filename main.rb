@@ -1,18 +1,18 @@
 #! /bin/ruby
 
+require "csv"
 require_relative "lib/bpglass"
 
 BASE_PATH = Pathname.new("./Archivos AW")
+aw_files = Dir.children(BASE_PATH).map { |xlsx_file| BASE_PATH.join(xlsx_file) }.sort!
 
-filenames = Dir.children(BASE_PATH).map { |xlsx_file| BASE_PATH.join(xlsx_file) }
-
-OUTPUT_FILENAME = "out.tsv"
-OUTPUT_FILE = File.open(OUTPUT_FILENAME, "w") do |output_file|
-  lines = filenames.first(10).each do |xlsx|
+OUTPUT_FILENAME = "out.csv"
+OUTPUT_FILE = CSV.open(OUTPUT_FILENAME, "w") do |output_file|
+  aw_files.each do |xlsx|
     puts "Processing: #{xlsx}"
     ot = BPGlass::OT.from_xlsx(xlsx)
-    ot.to_tsv.each do |line|
-      output_file.write(line + "\n")
+    ot.output_arrays.each do |array|
+      output_file << array
     end
   end
 end

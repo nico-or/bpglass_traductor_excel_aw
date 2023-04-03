@@ -104,11 +104,11 @@ module BPGlass
       ]
     end
 
-    def to_tsv
+    def output_arrays
       out = []
       out << tp_array unless piezas_tp.zero?
       out << dim_array unless piezas_dim.zero?
-      out.map { _1.join("\t") }
+      out
     end
 
     def cristal_especial
