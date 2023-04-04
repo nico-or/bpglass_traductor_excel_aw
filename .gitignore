@@ -1,4 +1,5 @@
 Archivos AW
 *.tsv
 *.csv
+*.txt
 *lock*
