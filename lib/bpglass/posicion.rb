@@ -23,8 +23,8 @@ module BPGlass
       @posicion = array[0]
       @tipo = array[15]
       @vidrio_1 = array[1].match(/\d+/)[0].to_i
-      @separador = array[2].match(/\d+/)[0].to_i if is_tp?
-      @vidrio_2 = array[3].match(/\d+/)[0].to_i if is_tp?
+      @separador = array[2].match(/\d+/)[0].to_i if tp?
+      @vidrio_2 = array[3].match(/\d+/)[0].to_i if tp?
       @producto = array[4].to_i
       @piezas = array[5].to_i
       @ancho = array[6].to_f
@@ -38,11 +38,11 @@ module BPGlass
       @peso = array[14].to_f
     end
 
-    def is_tp?
+    def tp?
       @tipo.eql? "TP"
     end
 
-    def is_dim?
+    def dim?
       @tipo.eql? "DIM"
     end
 
