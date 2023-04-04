@@ -116,6 +116,7 @@ module BPGlass
 
       BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
         count = posiciones
+          .select(&:tp?)
           .select { |posicion| posicion.send("#{tipo_cristal}?".to_sym) }
           .sum(&:piezas)
 
@@ -129,6 +130,7 @@ module BPGlass
 
     def forma
       count = posiciones
+        .select(&:tp?)
         .select(&:forma?)
         .sum(&:piezas)
 

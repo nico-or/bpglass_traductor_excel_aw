@@ -145,4 +145,14 @@ describe BPGlass::OT do
       end
     end
   end
+
+  context "When OT has cristal-especial DIM" do
+    let(:ot) { described_class.from_xlsx("./spec/fixtures/28586-AW-10-04-2023.xlsx") }
+
+    describe "#cristal_especial" do
+      it do
+        expect(ot.cristal_especial).to eq("")
+      end
+    end
+  end
 end
