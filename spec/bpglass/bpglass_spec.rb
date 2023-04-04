@@ -10,9 +10,6 @@ describe BPGlass do
   context "sanity checks" do
     let(:ots) { BPGlass.load_files.sort_by!(&:id) }
     it "all OTs have a cliente" do
-      ots.each do |ot|
-        p [ot.id, ot.cliente]
-      end
       expect(ots.map(&:cliente).none?(nil)).to eq(true)
     end
   end
