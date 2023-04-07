@@ -22,24 +22,28 @@ module BPGlass
   }
 
   ESPECIAL_ID = {
-    "bronce" => [170, 180],
+    "bronce_4" => [170],
+    "bronce_5" => [180],
     "clear" => [280],
     "green" => [],
     "gris" => [],
-    "laminado_acustico" => [390],
-    "laminado" => [350, 360],
+    "laminado_acustico_6" => [390],
+    "laminado_6" => [350],
+    "laminado_8" => [360],
     "lowe" => [460],
     "saten" => [260],
     "semilla" => [230],
   }
 
   ESPECIAL_ALIAS = {
-    "bronce" => "BRC",
+    "bronce_4" => "BRC4",
+    "bronce_5" => "BRC5",
     "clear" => "CLEAR",
     "green" => "GREEN",
     "gris" => "GRIS",
-    "laminado_acustico" => "LAMAC",
-    "laminado" => "LAM",
+    "laminado_acustico_6" => "LAMAC6",
+    "laminado_6" => "LAM6",
+    "laminado_8" => "LAM8",
     "lowe" => "LOWE",
     "saten" => "SAT",
     "semilla" => "SEM",

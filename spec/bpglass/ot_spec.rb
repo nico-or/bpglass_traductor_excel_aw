@@ -68,7 +68,7 @@ describe BPGlass::OT do
 
     describe "#cristal_especial" do
       it do
-        output = "LAM(31) SAT(4)"
+        output = "LAM6(31) SAT(4)"
         expect(ot.cristal_especial).to eq(output)
       end
     end
