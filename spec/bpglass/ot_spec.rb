@@ -47,7 +47,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           1, "", 1, "",
           "", "", "",
-          0.8, "", "", "", "18-01-2023", # "area", "today", "", "", "entrega",
+          0.8, Date.today.strftime("%d-%m-%Y"), "", "", "18-01-2023", # "area", "today", "", "", "entrega",
           "", "",
           3.6, "", "", #"mtl tp", "", "mtl dim"
         ]
@@ -86,7 +86,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           44, "", 44, "",
           "", "", "",
-          31, "", "", "", "23-01-2023",
+          31, Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
           "", "",
           159.3, "", "",
         ]
@@ -103,7 +103,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           "", 8, "", 8,
           "", "", "",
-          2.1, "", "", "", "23-01-2023",
+          2.1, Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
           "", "",
           "", "", 16.5,
         ]
@@ -136,7 +136,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           13, "", 13, "",
           "", "", "",
-          8.2, "", "", "", "03-11-2022", # "area", "today", "", "", "entrega",
+          8.2, Date.today.strftime("%d-%m-%Y"), "", "", "03-11-2022", # "area", "today", "", "", "entrega",
           "", "",
           37.8, "", "", #"mtl tp", "", "mtl dim"
         ]
@@ -173,7 +173,7 @@ describe BPGlass::OT do
           "BASTRO",
           45, "", 45, "",
           "", "", "",
-          79.4, "", "", "", "11-04-2023", # "area", "today", "", "", "entrega",
+          79.4, Date.today.strftime("%d-%m-%Y"), "", "", "11-04-2023", # "area", "today", "", "", "entrega",
           "", "",
           244.7, "", "", #"mtl tp", "", "mtl dim"
         ]

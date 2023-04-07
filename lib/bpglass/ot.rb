@@ -146,11 +146,14 @@ module BPGlass
       count.zero? ? "" : "PALILLAJE(#{count})"
     end
 
+    def fecha_ingreso
+      Date.today.strftime("%d-%m-%Y")
+    end
+
     %W[
       tps_fabricados
       dims_fabricados
       minutos
-      fecha_ingreso
       fecha_fabricacion_real
       fecha_fabricacion_planificada
       control_calidad
