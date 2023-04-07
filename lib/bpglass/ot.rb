@@ -137,6 +137,15 @@ module BPGlass
       count.zero? ? "" : "FORMA(#{count})"
     end
 
+    def palillaje
+      count = posiciones
+        .select(&:tp?)
+        .select(&:palillaje?)
+        .sum(&:piezas)
+
+      count.zero? ? "" : "PALILLAJE(#{count})"
+    end
+
     %W[
       tps_fabricados
       dims_fabricados

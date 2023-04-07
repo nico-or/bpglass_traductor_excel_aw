@@ -155,4 +155,13 @@ describe BPGlass::OT do
       end
     end
   end
+  context "When OT has PALILLAJE positions" do
+    let(:ot) { described_class.from_xlsx("./spec/fixtures/28665-AW-11-04-2023.xlsx") }
+
+    describe "#palillaje" do
+      it do
+        expect(ot.palillaje).to eq("PALILLAJE(8)")
+      end
+    end
+  end
 end
