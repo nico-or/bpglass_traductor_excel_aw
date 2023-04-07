@@ -55,7 +55,7 @@ module BPGlass
         id,
         obra,
         cristal_especial,
-        forma,
+        [palillaje, forma].join(" ").strip,
         cliente,
         piezas_tp, #tp_original,
         "", #dim_original,

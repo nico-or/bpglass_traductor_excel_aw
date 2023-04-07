@@ -163,5 +163,23 @@ describe BPGlass::OT do
         expect(ot.palillaje).to eq("PALILLAJE(8)")
       end
     end
+
+    describe "#tp_array" do
+      it "returns the correct output" do
+        output = [
+          "28665",
+          "BST 15784 PIRQUE PALILLO VEKA NEGRO SPECTRAL",
+          "SAT(7)", "PALILLAJE(8)",
+          "BASTRO",
+          45, "", 45, "",
+          "", "", "",
+          79.4, "", "", "", "11-04-2023", # "area", "today", "", "", "entrega",
+          "", "",
+          244.7, "", "", #"mtl tp", "", "mtl dim"
+        ]
+
+        expect(ot.tp_array).to eq(output)
+      end
+    end
   end
 end
