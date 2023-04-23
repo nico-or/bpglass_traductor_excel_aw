@@ -1,6 +1,6 @@
 describe BPGlass::OT do
   context "pedido simple" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/27153-AW-18-01-2023.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/27153-AW-18-01-2023.xlsx") }
 
     describe "#id" do
       it "returns the OT number" do
@@ -52,9 +52,9 @@ describe BPGlass::OT do
   end
 
   context "pedido grande" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/27135-AW-02-02-2023.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/27135-AW-02-02-2023.xlsx") }
 
-    describe "#from_xlsx" do
+    describe "#from_excel_import" do
       it { expect(ot.piezas_tp).to eq(108) }
       it { expect(ot.piezas_dim).to eq(0) }
       it { expect(ot.posiciones.count).to eq(78) }
@@ -69,7 +69,7 @@ describe BPGlass::OT do
   end
 
   context "pedido con dimensionado" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/27138-AW-23-01-2023.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/27138-AW-23-01-2023.xlsx") }
 
     describe "#tp_array" do
       it "returns 2 arrays for TP and DIM" do
@@ -113,7 +113,7 @@ describe BPGlass::OT do
   end
 
   context "pedido con forma" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/25766-AW-03-11-2022.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/25766-AW-03-11-2022.xlsx") }
 
     describe "#posiciones" do
       it "has correct position count" do
@@ -141,7 +141,7 @@ describe BPGlass::OT do
   end
 
   context "When OT has cristal-especial DIM" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/28586-AW-10-04-2023.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/28586-AW-10-04-2023.xlsx") }
 
     describe "#cristal_especial" do
       it do
@@ -150,7 +150,7 @@ describe BPGlass::OT do
     end
   end
   context "When OT has PALILLAJE positions" do
-    let(:ot) { described_class.from_xlsx("./spec/fixtures/28665-AW-11-04-2023.xlsx") }
+    let(:ot) { described_class.from_excel_import("./spec/fixtures/28665-AW-11-04-2023.xlsx") }
 
     describe "#palillaje" do
       it do

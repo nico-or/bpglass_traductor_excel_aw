@@ -1,48 +1,46 @@
 module BPGlass
   class OT
-    def self.from_xlsx(filepath)
-      foo = Roo::Excelx.new(filepath)
-
-      self.new do |ot|
-        ot.id = foo.cell(*Roo::Utils.extract_coordinate("J2"))
-        ot.obra = foo.cell(*Roo::Utils.extract_coordinate("C6"))
-        ot.cliente = foo.cell(*Roo::Utils.extract_coordinate("C4"))
-        ot.fecha_despacho = foo.cell(*Roo::Utils.extract_coordinate("N4"))
-        ot.metros_cuadrados_tp = foo.cell(*Roo::Utils.extract_coordinate("H6"))
-        ot.metros_cuadrados_dim = foo.cell(*Roo::Utils.extract_coordinate("I6"))
-
-        ot.metros_lineales_tp = foo.cell(*Roo::Utils.extract_coordinate("H5"))
-        ot.metros_lineales_dim = foo.cell(*Roo::Utils.extract_coordinate("I5"))
-
-        ot.piezas_tp = foo.cell(*Roo::Utils.extract_coordinate("H4"))
-        ot.piezas_dim = foo.cell(*Roo::Utils.extract_coordinate("I4"))
-
-        idx = 10
-        loop do
-          row = foo.row(idx)
-          break if [nil, ""].include? row[1]
-          ot.posiciones << Posicion.new(row)
-          idx += 1
-        end
-      end
+    def self.from_excel_import(filepath)
+      ExcelImport.ot(filepath)
     end
 
-    attr_accessor(
+    attr_reader(
+      :posiciones,
       :id,
       :obra,
       :cliente,
       :fecha_despacho,
-      :piezas_tp, :piezas_dim,
-      :metros_lineales_tp, :metros_lineales_dim,
-      :metros_cuadrados_tp, :metros_cuadrados_dim,
+      :piezas_tp,
+      :piezas_dim,
+      :metros_lineales_tp,
+      :metros_lineales_dim,
+      :metros_cuadrados_tp,
+      :metros_cuadrados_dim
     )
 
-    attr_reader :posiciones
-
-    def initialize
+    def initialize(
+      id:,
+      obra:,
+      cliente:,
+      fecha_despacho:,
+      piezas_tp:,
+      piezas_dim:,
+      metros_lineales_tp:,
+      metros_lineales_dim:,
+      metros_cuadrados_tp:,
+      metros_cuadrados_dim:
+    )
+      @id = id
+      @obra = obra
+      @cliente = cliente
+      @fecha_despacho = fecha_despacho
+      @piezas_tp = piezas_tp
+      @piezas_dim = piezas_dim
+      @metros_lineales_tp = metros_lineales_tp
+      @metros_lineales_dim = metros_lineales_dim
+      @metros_cuadrados_tp = metros_cuadrados_tp
+      @metros_cuadrados_dim = metros_cuadrados_dim
       @posiciones = []
-
-      yield self
     end
 
     def tp_array
