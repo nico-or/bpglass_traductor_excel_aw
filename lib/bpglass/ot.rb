@@ -6,13 +6,8 @@ module BPGlass
       self.new do |ot|
         ot.id = foo.cell(*Roo::Utils.extract_coordinate("J2"))
         ot.obra = foo.cell(*Roo::Utils.extract_coordinate("C6"))
-
-        original_name = foo.cell(*Roo::Utils.extract_coordinate("C4"))
-        alias_name = BPGlass::Cliente.alias(original_name)
-        ot.cliente = alias_name
-
+        ot.cliente = foo.cell(*Roo::Utils.extract_coordinate("C4"))
         ot.fecha_despacho = foo.cell(*Roo::Utils.extract_coordinate("N4"))
-
         ot.metros_cuadrados_tp = foo.cell(*Roo::Utils.extract_coordinate("H6"))
         ot.metros_cuadrados_dim = foo.cell(*Roo::Utils.extract_coordinate("I6"))
 
@@ -56,7 +51,7 @@ module BPGlass
         obra,
         cristal_especial,
         [palillaje, forma].join(" ").strip,
-        cliente,
+        BPGlass::Cliente.alias(cliente),
         piezas_tp, #tp_original,
         "", #dim_original,
         piezas_tp, #tp_original,
@@ -83,7 +78,7 @@ module BPGlass
         obra,
         "DIMENSIONADO",
         forma,
-        cliente,
+        BPGlass::Cliente.alias(cliente),
         "", #tp_original,
         piezas_dim, #dim_original,
         "", #tp_original,

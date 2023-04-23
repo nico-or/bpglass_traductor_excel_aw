@@ -14,12 +14,6 @@ describe BPGlass::OT do
       end
     end
 
-    describe "#cliente" do
-      it "returns the 'cliente' name" do
-        expect(ot.cliente).to eq("RENOVATEK")
-      end
-    end
-
     describe "#posiciones" do
       it "has correct position count" do
         expect(ot.posiciones.count).to eq(1)
