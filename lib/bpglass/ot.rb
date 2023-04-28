@@ -57,14 +57,14 @@ module BPGlass
         tps_fabricados,
         dims_fabricados,
         minutos,
-        metros_cuadrados_tp, #metros_cuadrados,
+        metros_cuadrados_tp.to_excel_string, #metros_cuadrados,
         fecha_ingreso,
         fecha_fabricacion_real,
         fecha_fabricacion_planificada,
         fecha_despacho,
         control_calidad,
         estado_actual_produccion,
-        metros_lineales_tp, #metros_lineales_programados,
+        metros_lineales_tp.to_excel_string, #metros_lineales_programados,
         metros_lineales_tp_fabricados,
         "", #metros_lineales_dim_programados,
       ]
@@ -84,7 +84,7 @@ module BPGlass
         tps_fabricados,
         dims_fabricados,
         minutos,
-        metros_cuadrados_dim, #metros_cuadrados,
+        metros_cuadrados_dim.to_excel_string, #metros_cuadrados,
         fecha_ingreso,
         fecha_fabricacion_real,
         fecha_fabricacion_planificada,
@@ -93,7 +93,7 @@ module BPGlass
         estado_actual_produccion,
         "", #metros_lineales_programados,
         metros_lineales_tp_fabricados,
-        metros_lineales_dim, #metros_lineales_dim_programados,
+        metros_lineales_dim.to_excel_string, #metros_lineales_dim_programados,
       ]
     end
 

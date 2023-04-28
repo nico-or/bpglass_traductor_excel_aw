@@ -4,6 +4,8 @@ require_relative "bpglass/posicion"
 require_relative "bpglass/cliente"
 require_relative "bpglass/excel_import"
 
+require_relative "bpglass/numeric"
+
 module BPGlass
   def self.load_files(dir_path = "./Archivos AW")
     filepaths = Dir.glob("#{dir_path}/*.xlsx")
