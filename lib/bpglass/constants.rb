@@ -46,7 +46,7 @@ module BPGlass
     "laminado_8" => [360],
     "laminado_saten_5" => [379],
     "laminado_acustico_6" => [390],
-    "laminado_acustico_6" => [400],
+    "laminado_acustico_8" => [400],
     "lowe" => [460],
   }
 
@@ -60,7 +60,7 @@ module BPGlass
     "gris" => "GRIS",
     "laminado_6" => "LAM6",
     "laminado_8" => "LAM8",
-    "laminado_saten_5" => "LAMSAT5"
+    "laminado_saten_5" => "LAMSAT5",
     "laminado_acustico_6" => "LAMAC6",
     "laminado_acustico_8" => "LAMAC8",
     "lowe" => "LOWE",
