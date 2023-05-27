@@ -1,4 +1,4 @@
-describe BPGlass::Cliente do
+describe BPGlass::Clientes do
   it "returns the alias if the YAML entry record exists" do
     fullname = "FABRICA DE PUERTAS Y VENTANAS RENOVA TEK LIMITADA"
     cliente_alias = "RENOVATEK"

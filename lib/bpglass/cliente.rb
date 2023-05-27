@@ -3,7 +3,7 @@ require "yaml"
 module BPGlass
 
   # provides an interface to the clientes YAML database
-  class Cliente
+  module Clientes
     DB = YAML.load_file("./lib/data/clientes.yml")
 
     def self.alias(cliente_name)
