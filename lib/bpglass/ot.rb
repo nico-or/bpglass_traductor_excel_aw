@@ -105,20 +105,22 @@ module BPGlass
     end
 
     def cristal_especial
-      output = []
+      short_names = []
 
-      BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
-        count = posiciones
-          .select(&:tp?)
-          .select { |posicion| posicion.send("#{tipo_cristal}?".to_sym) }
-          .sum(&:piezas)
-
-        unless count.zero?
-          output << "#{BPGlass::ESPECIAL_ALIAS[tipo_cristal]}(#{count})"
+      posiciones.select(&:tp?).each do |posicion|
+        posicion.piezas.times do
+          [posicion.vidrio_1, posicion.vidrio_2].each do |vidrio|
+            short_names << vidrio.short_name
+          end
         end
       end
 
-      output.sort.join(" ")
+      short_names
+        .compact
+        .tally
+        .map { |short_name, count| "#{short_name}(#{count})" }
+        .sort
+        .join(" ")
     end
 
     def forma

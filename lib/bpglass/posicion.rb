@@ -22,9 +22,9 @@ module BPGlass
     def initialize(array)
       @posicion = array[0]
       @tipo = array[15]
-      @vidrio_1 = array[1].match(/\d+/)[0].to_i
+      @vidrio_1 = BPGlass::Cristales[array[1].match(/\d+/)[0].to_i]
       @separador = array[2].match(/\d+/)[0].to_i if tp?
-      @vidrio_2 = array[3].match(/\d+/)[0].to_i if tp?
+      @vidrio_2 = BPGlass::Cristales[array[3].match(/\d+/)[0].to_i] if tp?
       @producto = array[4].to_i
       @piezas = array[5].to_i
       @ancho = array[6].to_f
@@ -52,12 +52,6 @@ module BPGlass
 
     def palillaje?
       @referencia.match? /PALILLAJE/
-    end
-
-    BPGlass::ESPECIAL_ID.keys.each do |tipo_cristal|
-      define_method("#{tipo_cristal}?") do
-        [vidrio_1, vidrio_2].any? { BPGlass::ESPECIAL_ID[tipo_cristal].include? _1 }
-      end
     end
   end
 end

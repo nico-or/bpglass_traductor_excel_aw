@@ -27,7 +27,7 @@ describe BPGlass::Posicion do
     end
 
     describe "#vidrio_1" do
-      it { expect(posicion.vidrio_1).to eq(100) }
+      it { expect(posicion.vidrio_1).to eq(BPGlass::Cristales[100]) }
     end
 
     describe "#separador" do
@@ -35,7 +35,7 @@ describe BPGlass::Posicion do
     end
 
     describe "#vidrio_2" do
-      it { expect(posicion.vidrio_2).to eq(100) }
+      it { expect(posicion.vidrio_2).to eq(BPGlass::Cristales[100]) }
     end
 
     describe "#producto" do
@@ -105,10 +105,5 @@ describe BPGlass::Posicion do
         "TP",
       ])
     }
-
-    describe "#saten?" do
-      it { expect(pos_incoloro.saten?).to eq(false) }
-      it { expect(pos_saten.saten?).to eq(true) }
-    end
   end
 end

@@ -1,0 +1,66 @@
+---
+- :id: 100
+  :cotizador: Incoloro 04 mm
+  :especial: false
+- :id: 110
+  :cotizador: Incoloro 05 mm
+  :especial: false
+- :id: 120
+  :cotizador: Incoloro 06 mm
+  :especial: false
+- :id: 130
+  :cotizador: Incoloro 08 mm
+  :especial: true
+  :short_name: INC8
+- :id: 170
+  :cotizador: Bronce 04 mm
+  :especial: true
+  :short_name: BRC4
+- :id: 180
+  :cotizador: Bronce 05 mm
+  :especial: true
+  :short_name: BRC5
+- :id: 200
+  :cotizador: Evergreen 06 mm
+  :especial: true
+  :short_name: GREEN
+- :id: 230
+  :cotizador: Semilla 04 mm
+  :especial: true
+  :short_name: SEMI
+- :id: 260
+  :cotizador: Saten 04 mm
+  :especial: true
+  :short_name: SAT
+- :id: 280
+  :cotizador: Ecl. Adv. Clear 06 mm
+  :especial: true
+  :short_name: CLEAR
+- :id: 290
+  :cotizador: Ecl. Adv. Gris 06 mm
+  :especial: true
+  :short_name: GRIS
+- :id: 350
+  :cotizador: Laminado 3+3.1 Inc
+  :especial: true
+  :short_name: LAM6
+- :id: 360
+  :cotizador: Laminado 4+4.1 Inc
+  :especial: true
+  :short_name: LAM8
+- :id: 379
+  :cotizador: Laminado 2.5+2.6 Satén
+  :especial: true
+  :short_name: LAMSAT5
+- :id: 390
+  :cotizador: Laminado 3+3.1 Acustico
+  :especial: true
+  :short_name: LAMAC6
+- :id: 400
+  :cotizador: Laminado 4+4.1 Acustico
+  :especial: true
+  :short_name: LAMAC8
+- :id: 460
+  :cotizador: Low-e 06 mm
+  :especial: true
+  :short_name: LOWE
