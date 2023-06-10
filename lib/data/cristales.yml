@@ -23,7 +23,7 @@
 - :id: 200
   :cotizador: Evergreen 06 mm
   :especial: true
-  :short_name: GREEN
+  :short_name: OptiGreen
 - :id: 230
   :cotizador: Semilla 04 mm
   :especial: true
@@ -40,6 +40,10 @@
   :cotizador: Ecl. Adv. Gris 06 mm
   :especial: true
   :short_name: GRIS
+- :id: 320
+  :cotizador: Ecl. Adv. Ever Green 06 mm
+  :especial: true
+  :short_name: AdvGreen
 - :id: 350
   :cotizador: Laminado 3+3.1 Inc
   :especial: true
