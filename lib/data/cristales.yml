@@ -1,70 +1,93 @@
 ---
 - :id: 100
-  :cotizador: Incoloro 04 mm
+  :alias:
+    - 100 - Incoloro 04 mm
+    - INC 4
   :especial: false
 - :id: 110
-  :cotizador: Incoloro 05 mm
+  :alias:
+    - 110 - Incoloro 05 mm
+    - INC 5
   :especial: false
 - :id: 120
-  :cotizador: Incoloro 06 mm
+  :alias:
+    - 120 - Incoloro 06 mm
+    - INC 6
   :especial: false
 - :id: 130
-  :cotizador: Incoloro 08 mm
+  :alias:
+    - 130 - Incoloro 08 mm
+    - INC 8
   :especial: true
   :short_name: INC8
 - :id: 170
-  :cotizador: Bronce 04 mm
+  :alias:
+    - 170 - Bronce 04 mm
   :especial: true
   :short_name: BRC4
 - :id: 180
-  :cotizador: Bronce 05 mm
+  :alias:
+    - 180 - Bronce 05 mm
   :especial: true
   :short_name: BRC5
 - :id: 200
-  :cotizador: Evergreen 06 mm
+  :alias:
+    - 200 - Evergreen 06 mm
   :especial: true
   :short_name: OptiGreen
 - :id: 230
-  :cotizador: Semilla 04 mm
+  :alias:
+    - 230 - Semilla 04 mm
   :especial: true
   :short_name: SEMI
 - :id: 260
-  :cotizador: Saten 04 mm
+  :alias:
+    - 260 - Saten 04 mm
+    - SATEN 4
   :especial: true
   :short_name: SAT
 - :id: 280
-  :cotizador: Ecl. Adv. Clear 06 mm
+  :alias:
+    - 280 - Ecl. Adv . Clear 06 mm
   :especial: true
   :short_name: CLEAR
 - :id: 290
-  :cotizador: Ecl. Adv. Gris 06 mm
+  :alias:
+    - 290 - Ecl. Adv . Gris 06 mm
   :especial: true
   :short_name: GRIS
 - :id: 320
-  :cotizador: Ecl. Adv. Ever Green 06 mm
+  :alias:
+    - 320 - Ecl. Adv . Ever Green 06 mm
   :especial: true
   :short_name: AdvGreen
 - :id: 350
-  :cotizador: Laminado 3+3.1 Inc
+  :alias:
+    - 350 - Laminado 3+3.1 Inc
   :especial: true
   :short_name: LAM6
 - :id: 360
-  :cotizador: Laminado 4+4.1 Inc
+  :alias:
+    - 360 - Laminado 4+4.1 Inc
   :especial: true
   :short_name: LAM8
 - :id: 379
-  :cotizador: Laminado 2.5+2.6 Satén
+  :alias:
+    - 379 - Laminado 2.5+2.6 Satén
   :especial: true
   :short_name: LAMSAT5
 - :id: 390
-  :cotizador: Laminado 3+3.1 Acustico
+  :alias:
+    - 390 - Laminado 3+3.1 Acustico
   :especial: true
   :short_name: LAMAC6
 - :id: 400
-  :cotizador: Laminado 4+4.1 Acustico
+  :alias:
+    - 400 - Laminado 4+4.1 Acustico
   :especial: true
   :short_name: LAMAC8
 - :id: 460
-  :cotizador: Low-e 06 mm
+  :alias:
+    - 460 - Low-e 06 mm
   :especial: true
   :short_name: LOWE
