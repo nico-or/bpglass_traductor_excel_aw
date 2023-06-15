@@ -7,6 +7,8 @@ module BPGlass
     DB = YAML.load_file("./lib/data/cristales.yml").map { Cristal.new(_1) }
 
     def self.[](query)
+      return if query.eql?("")
+
       cristal = DB.find { |cristal| cristal.id.eql?(query) } ||
                 DB.find { |cristal| cristal.alias.include?(query) }
 

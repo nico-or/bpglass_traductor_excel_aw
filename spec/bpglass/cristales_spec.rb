@@ -30,5 +30,10 @@ describe BPGlass::Cristales do
       id = 999
       expect { BPGlass::Cristales[id] }.to raise_error(ArgumentError)
     end
+
+    it "returns nil for an empty string query" do
+      id = ""
+      expect(described_class[id]).to eq(nil)
+    end
   end
 end
