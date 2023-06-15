@@ -1,53 +1,77 @@
 module BPGlass
   class Posicion
-    attr_reader(
-      :posicion,
-      :vidrio_1,
-      :separador,
-      :vidrio_2,
-      :producto,
-      :piezas,
-      :ancho,
-      :alto,
-      :referencia,
-      :precio_unitario,
-      :descripcion,
-      :forma,
-      :metros_cuadrados,
-      :metros_lineales,
-      :peso,
-      :tipo
-    )
+    def self.from_hash(hash)
+      Posicion.new(
+        vidrio_1: hash[:vidrio_1],
+        vidrio_2: hash[:vidrio_2],
+        cantidad: hash[:cantidad],
+        ancho: hash[:ancho],
+        alto: hash[:alto],
+        referencia: hash[:referencia],
+        forma: hash[:forma],
+      )
+    end
 
-    def initialize(array)
-      @posicion = array[0]
-      @tipo = array[15]
-      @vidrio_1 = BPGlass::Cristales[array[1].match(/\d+/)[0].to_i]
-      @separador = array[2].match(/\d+/)[0].to_i if tp?
-      @vidrio_2 = BPGlass::Cristales[array[3].match(/\d+/)[0].to_i] if tp?
-      @producto = array[4].to_i
-      @piezas = array[5].to_i
-      @ancho = array[6].to_f
-      @alto = array[7].to_f
-      @referencia = array[8]
-      @precio_unitario = array[9].to_f
-      @descripcion = array[10]
-      @forma = array[11]
-      @metros_cuadrados = array[12].to_f
-      @metros_lineales = array[13].to_f
-      @peso = array[14].to_f
+    def initialize(
+      cantidad:,
+      vidrio_1:,
+      vidrio_2: nil,
+      separador: nil,
+      ancho:,
+      alto:,
+      referencia: nil,
+      forma: nil
+    )
+      @vidrio_1 = vidrio_1
+      @vidrio_2 = vidrio_2
+      @separador = separador
+      @cantidad = cantidad
+      @ancho = ancho
+      @alto = alto
+      @referencia = referencia
+      @forma = forma
+    end
+
+    def vidrio_1
+      BPGlass::Cristales[@vidrio_1]
+    end
+
+    def vidrio_2
+      return if @vidrio_2.nil?
+
+      BPGlass::Cristales[@vidrio_2]
+    end
+
+    def cantidad
+      @cantidad.to_i
+    end
+
+    def alto
+      @alto.to_i
+    end
+
+    def ancho
+      @ancho.to_i
+    end
+
+    def metros_cuadrados
+      @metros_cuadrados ||= ancho * alto / 1e6
+    end
+
+    def metros_lineales
+      @metros_lineales ||= 2 * (ancho + alto) / 1e3
     end
 
     def tp?
-      @tipo.eql? "TP"
+      !vidrio_2.nil?
     end
 
     def dim?
-      @tipo.eql? "DIM"
+      vidrio_2.nil?
     end
 
     def forma?
-      ![nil, ""].include?(forma)
+      ![nil, ""].include?(@forma)
     end
 
     def palillaje?
