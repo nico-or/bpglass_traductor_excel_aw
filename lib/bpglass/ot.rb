@@ -1,7 +1,8 @@
 module BPGlass
   class OT
     def self.from_excel_import(filepath)
-      ExcelImport.ot(filepath)
+      file = BPGlass::ExcelParser::BPGlassParser.new(filepath)
+      file.ot
     end
 
     attr_reader(
@@ -108,7 +109,7 @@ module BPGlass
       short_names = []
 
       posiciones.select(&:tp?).each do |posicion|
-        posicion.piezas.times do
+        posicion.cantidad.times do
           [posicion.vidrio_1, posicion.vidrio_2].each do |vidrio|
             short_names << vidrio.short_name
           end
@@ -127,7 +128,7 @@ module BPGlass
       count = posiciones
         .select(&:tp?)
         .select(&:forma?)
-        .sum(&:piezas)
+        .sum(&:cantidad)
 
       count.zero? ? "" : "FORMA(#{count})"
     end
@@ -136,7 +137,7 @@ module BPGlass
       count = posiciones
         .select(&:tp?)
         .select(&:palillaje?)
-        .sum(&:piezas)
+        .sum(&:cantidad)
 
       count.zero? ? "" : "PALILLAJE(#{count})"
     end
