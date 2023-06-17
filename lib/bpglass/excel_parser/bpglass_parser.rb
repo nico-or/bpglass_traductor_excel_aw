@@ -36,12 +36,6 @@ module BPGlass
           obra: xlsx.cell(*Roo::Utils.extract_coordinate("C6")),
           cliente: xlsx.cell(*Roo::Utils.extract_coordinate("C4")),
           fecha_despacho: xlsx.cell(*Roo::Utils.extract_coordinate("N4")),
-          metros_cuadrados_tp: xlsx.cell(*Roo::Utils.extract_coordinate("H6")),
-          metros_cuadrados_dim: xlsx.cell(*Roo::Utils.extract_coordinate("I6")),
-          metros_lineales_tp: xlsx.cell(*Roo::Utils.extract_coordinate("H5")),
-          metros_lineales_dim: xlsx.cell(*Roo::Utils.extract_coordinate("I5")),
-          piezas_tp: xlsx.cell(*Roo::Utils.extract_coordinate("H4")),
-          piezas_dim: xlsx.cell(*Roo::Utils.extract_coordinate("I4")),
         )
 
         posiciones.each { |pos| ot.posiciones << pos }

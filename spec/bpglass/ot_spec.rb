@@ -32,6 +32,14 @@ describe BPGlass::OT do
       end
     end
 
+    describe "#metros_cuadrados_tp" do
+      it { expect(ot.metros_cuadrados_tp).to be_within(0.1).of(0.8) }
+    end
+
+    describe "#metros_lineales_tp" do
+      it { expect(ot.metros_lineales_tp).to be_within(0.1).of(3.6) }
+    end
+
     describe "#tp_array" do
       it "returns the correct array structure" do
         output = [

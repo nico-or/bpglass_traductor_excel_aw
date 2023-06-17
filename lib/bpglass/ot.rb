@@ -11,37 +11,43 @@ module BPGlass
       :obra,
       :cliente,
       :fecha_despacho,
-      :piezas_tp,
-      :piezas_dim,
-      :metros_lineales_tp,
-      :metros_lineales_dim,
-      :metros_cuadrados_tp,
-      :metros_cuadrados_dim
     )
 
     def initialize(
       id:,
       obra:,
       cliente:,
-      fecha_despacho:,
-      piezas_tp:,
-      piezas_dim:,
-      metros_lineales_tp:,
-      metros_lineales_dim:,
-      metros_cuadrados_tp:,
-      metros_cuadrados_dim:
+      fecha_despacho:
     )
       @id = id
       @obra = obra
       @cliente = cliente
       @fecha_despacho = fecha_despacho
-      @piezas_tp = piezas_tp.to_i
-      @piezas_dim = piezas_dim.to_i
-      @metros_lineales_tp = metros_lineales_tp.to_f
-      @metros_lineales_dim = metros_lineales_dim.to_f
-      @metros_cuadrados_tp = metros_cuadrados_tp.to_f
-      @metros_cuadrados_dim = metros_cuadrados_dim.to_f
       @posiciones = []
+    end
+
+    def piezas_tp
+      @piezas_tp ||= posiciones_tp.sum(&:cantidad)
+    end
+
+    def piezas_dim
+      @piezas_tp ||= posiciones_dim.sum(&:cantidad)
+    end
+
+    def metros_cuadrados_tp
+      @metros_cuadrados_tp ||= posiciones_tp.sum(&:metros_cuadrados)
+    end
+
+    def metros_cuadrados_dim
+      @metros_cuadrados_dim ||= posiciones_dim.sum(&:metros_cuadrados)
+    end
+
+    def metros_lineales_tp
+      @metros_lineales_tp ||= posiciones_tp.sum(&:metros_lineales)
+    end
+
+    def metros_lineales_dim
+      @metros_lineales_dim ||= posiciones_dim.sum(&:metros_lineales)
     end
 
     def tp_array
@@ -108,7 +114,7 @@ module BPGlass
     def cristal_especial
       short_names = []
 
-      posiciones.select(&:tp?).each do |posicion|
+      posiciones_tp.each do |posicion|
         posicion.cantidad.times do
           [posicion.vidrio_1, posicion.vidrio_2].each do |vidrio|
             short_names << vidrio.short_name
@@ -125,8 +131,7 @@ module BPGlass
     end
 
     def forma
-      count = posiciones
-        .select(&:tp?)
+      count = posiciones_tp
         .select(&:forma?)
         .sum(&:cantidad)
 
@@ -134,8 +139,7 @@ module BPGlass
     end
 
     def palillaje
-      count = posiciones
-        .select(&:tp?)
+      count = posiciones_tp
         .select(&:palillaje?)
         .sum(&:cantidad)
 
@@ -166,6 +170,14 @@ module BPGlass
 
     def to_excel_string(number)
       number.round(1).to_s.gsub(".", ",")
+    end
+
+    def posiciones_tp
+      @posiciones_tp ||= posiciones.select(&:tp?)
+    end
+
+    def posiciones_dim
+      @posiciones_dim ||= posiciones.select(&:dim?)
     end
   end
 end
