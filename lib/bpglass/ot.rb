@@ -35,12 +35,12 @@ module BPGlass
       @obra = obra
       @cliente = cliente
       @fecha_despacho = fecha_despacho
-      @piezas_tp = piezas_tp
-      @piezas_dim = piezas_dim
-      @metros_lineales_tp = metros_lineales_tp
-      @metros_lineales_dim = metros_lineales_dim
-      @metros_cuadrados_tp = metros_cuadrados_tp
-      @metros_cuadrados_dim = metros_cuadrados_dim
+      @piezas_tp = piezas_tp.to_i
+      @piezas_dim = piezas_dim.to_i
+      @metros_lineales_tp = metros_lineales_tp.to_f
+      @metros_lineales_dim = metros_lineales_dim.to_f
+      @metros_cuadrados_tp = metros_cuadrados_tp.to_f
+      @metros_cuadrados_dim = metros_cuadrados_dim.to_f
       @posiciones = []
     end
 
@@ -58,14 +58,14 @@ module BPGlass
         tps_fabricados,
         dims_fabricados,
         minutos,
-        metros_cuadrados_tp.to_excel_string, #metros_cuadrados,
+        to_excel_string(metros_cuadrados_tp), #metros_cuadrados,
         fecha_ingreso,
         fecha_fabricacion_real,
         fecha_fabricacion_planificada,
         fecha_despacho,
         control_calidad,
         estado_actual_produccion,
-        metros_lineales_tp.to_excel_string, #metros_lineales_programados,
+        to_excel_string(metros_lineales_tp), #metros_lineales_programados,
         metros_lineales_tp_fabricados,
         "", #metros_lineales_dim_programados,
       ]
@@ -85,7 +85,7 @@ module BPGlass
         tps_fabricados,
         dims_fabricados,
         minutos,
-        metros_cuadrados_dim.to_excel_string, #metros_cuadrados,
+        to_excel_string(metros_cuadrados_dim), #metros_cuadrados,
         fecha_ingreso,
         fecha_fabricacion_real,
         fecha_fabricacion_planificada,
@@ -94,7 +94,7 @@ module BPGlass
         estado_actual_produccion,
         "", #metros_lineales_programados,
         metros_lineales_tp_fabricados,
-        metros_lineales_dim.to_excel_string, #metros_lineales_dim_programados,
+        to_excel_string(metros_lineales_dim), #metros_lineales_dim_programados,
       ]
     end
 
@@ -160,6 +160,12 @@ module BPGlass
       define_method(method) do
         ""
       end
+    end
+
+    private
+
+    def to_excel_string(number)
+      number.round(1).to_s.gsub(".", ",")
     end
   end
 end

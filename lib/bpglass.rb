@@ -2,7 +2,6 @@ require_relative "bpglass/constants"
 require_relative "bpglass/ot"
 require_relative "bpglass/posicion"
 require_relative "bpglass/cliente"
-require_relative "bpglass/numeric"
 require_relative "bpglass/cristales"
 require_relative "bpglass/excel_parser"
 

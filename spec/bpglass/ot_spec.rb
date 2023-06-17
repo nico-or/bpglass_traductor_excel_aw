@@ -80,7 +80,7 @@ describe BPGlass::OT do
           "RENOVATEK",
           44, "", 44, "",
           "", "", "",
-          "31", Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
+          "31,0", Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
           "", "",
           "159,3", "", "",
         ]
