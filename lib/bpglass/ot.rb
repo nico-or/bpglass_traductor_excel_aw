@@ -5,6 +5,11 @@ module BPGlass
       file.ot
     end
 
+    def self.from_bastro(filepath)
+      file = BPGlass::ExcelParser::BastroParser.new(filepath)
+      file.ot
+    end
+
     attr_reader(
       :posiciones,
       :id,
