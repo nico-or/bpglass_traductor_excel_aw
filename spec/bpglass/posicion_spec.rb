@@ -1,5 +1,5 @@
 describe BPGlass::Posicion do
-  context "TP" do
+  context "single TP" do
     let(:posicion) do
       described_class.new(vidrio_1: "100 - Incoloro 04 mm",
                           vidrio_2: "260 - Saten 04 mm",
@@ -18,6 +18,22 @@ describe BPGlass::Posicion do
     it { expect(posicion.tp?).to eq(true) }
     it { expect(posicion.dim?).to eq(false) }
     it { expect(posicion.forma?).to eq(false) }
+  end
+
+  context "multiple TP" do
+    let(:posicion) do
+      described_class.new(vidrio_1: "100 - Incoloro 04 mm",
+                          vidrio_2: "260 - Saten 04 mm",
+                          cantidad: 2,
+                          ancho: "977",
+                          alto: 825)
+    end
+
+    it { expect(posicion.cantidad).to eql(2) }
+    it { expect(posicion.ancho).to eq(977) }
+    it { expect(posicion.alto).to eq(825) }
+    it { expect(posicion.metros_cuadrados).to be_within(0.1).of(1.6) }
+    it { expect(posicion.metros_lineales).to be_within(0.1).of(7.2) }
   end
 
   context "DIM" do

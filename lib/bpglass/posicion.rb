@@ -55,11 +55,11 @@ module BPGlass
     end
 
     def metros_cuadrados
-      @metros_cuadrados ||= ancho * alto / 1e6
+      @metros_cuadrados ||= cantidad * (ancho * alto / 1e6)
     end
 
     def metros_lineales
-      @metros_lineales ||= 2 * (ancho + alto) / 1e3
+      @metros_lineales ||= cantidad * (2 * (ancho + alto) / 1e3)
     end
 
     def tp?
