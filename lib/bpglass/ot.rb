@@ -39,7 +39,7 @@ module BPGlass
     end
 
     def piezas_dim
-      @piezas_tp ||= posiciones_dim.sum(&:cantidad)
+      @piezas_dim ||= posiciones_dim.sum(&:cantidad)
     end
 
     def metros_cuadrados_tp

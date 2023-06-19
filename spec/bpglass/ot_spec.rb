@@ -119,10 +119,23 @@ describe BPGlass::OT do
       end
     end
 
-    describe "#initialize" do
-      it "creates the correct amount of posiciones" do
-        expect(ot.posiciones.count).to eq(48)
-      end
+    describe "#piezas_tp" do
+      it { expect(ot.piezas_tp).to eq(44) }
+    end
+    describe "#piezas_dim" do
+      it { expect(ot.piezas_dim).to eq(8) }
+    end
+    describe "#metros_cuadrados_tp" do
+      it { expect(ot.metros_cuadrados_tp).to be_within(0.1).of(31.0) }
+    end
+    describe "#metros_cuadrados_dim" do
+      it { expect(ot.metros_cuadrados_dim).to be_within(0.1).of(2.1) }
+    end
+    describe "#metros_lineales_tp" do
+      it { expect(ot.metros_lineales_tp).to be_within(0.1).of(159.3) }
+    end
+    describe "#metros_lineales_dim" do
+      it { expect(ot.metros_lineales_dim).to be_within(0.1).of(16.5) }
     end
   end
 
