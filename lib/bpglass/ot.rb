@@ -14,7 +14,6 @@ module BPGlass
       :posiciones,
       :id,
       :obra,
-      :cliente,
       :fecha_despacho,
     )
 
@@ -29,6 +28,10 @@ module BPGlass
       @cliente = cliente
       @fecha_despacho = fecha_despacho
       @posiciones = []
+    end
+
+    def cliente
+      BPGlass::Clientes.alias(@cliente)
     end
 
     def piezas_tp
@@ -61,7 +64,7 @@ module BPGlass
         obra,
         cristal_especial,
         [palillaje, forma].join(" ").strip,
-        BPGlass::Clientes.alias(cliente),
+        cliente,
         piezas_tp, #tp_original,
         "", #dim_original,
         piezas_tp, #tp_original,
@@ -88,7 +91,7 @@ module BPGlass
         obra,
         "DIMENSIONADO",
         forma,
-        BPGlass::Clientes.alias(cliente),
+        cliente,
         "", #tp_original,
         piezas_dim, #dim_original,
         "", #tp_original,

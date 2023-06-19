@@ -8,6 +8,12 @@ describe BPGlass::OT do
       end
     end
 
+    describe "#cliente" do
+      it "returnts the cliente alias" do
+        expect(ot.cliente).to eq("RENOVATEK")
+      end
+    end
+
     describe "#obra" do
       it "returns the 'obra' name" do
         expect(ot.obra).to eq("San Eugenio. Depto. 304 URGENTE")
