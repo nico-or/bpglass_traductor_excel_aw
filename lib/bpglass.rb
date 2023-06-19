@@ -4,6 +4,7 @@ require_relative "bpglass/posicion"
 require_relative "bpglass/cliente"
 require_relative "bpglass/cristales"
 require_relative "bpglass/excel_parser"
+require_relative "bpglass/csv_writer"
 
 module BPGlass
   def self.load_files(dir_path = "./Archivos AW")

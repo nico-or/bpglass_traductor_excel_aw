@@ -1,0 +1,96 @@
+module BPGlass
+  module CsvWriter
+    class PlanificacionWriter
+      CSV_HEADERS = [
+        #"TAREA",
+        "OT",
+        "PROYECTO",
+        "CRISTAL ESPECIAL",
+        "CRISTAL CON FORMA",
+        "CLIENTE",
+        "TP ORIGINAL",
+        "DIM ORIGINAL",
+        "TP PROGRAMADOS",
+        "DIM PROGRAMADOS",
+        "TP FABRICADOS",
+        "DIM FABRICADOS",
+        "MINUTOS",
+        "M2",
+        "FECHA INGRESO",
+        "FECHA FABRICACION REAL",
+        "FECHA FABRICACION PLANIFICADA",
+        "FECHA DESPACHO",
+        "CONTROL DE CALIDAD",
+        "ESTADO ACTUAL PRODUCCION",
+        "MTL TP PROGRAMADO",
+        "MTL TP FABRICADOS",
+        "MTL DIM PROGRAMADO",
+      #"MTL DIM FABRICADOS",
+      ]
+
+      CSV_OPTIONS = {
+        headers: CSV_HEADERS,
+        col_sep: "\t",
+      }
+
+      attr_reader(:ot)
+
+      def initialize(ot)
+        @ot = ot
+      end
+
+      def to_csv()
+        CSV.generate("", CSV_OPTIONS) do |csv|
+          csv << hash_tp unless ot.piezas_tp.zero?
+          csv << hash_dim unless ot.piezas_dim.zero?
+        end
+      end
+
+      def hash_comun
+        @hash_comun ||= {
+          "OT" => ot.id,
+          "PROYECTO" => ot.obra,
+          "CLIENTE" => ot.cliente,
+          "FECHA INGRESO" => ot.fecha_ingreso,
+          "FECHA DESPACHO" => ot.fecha_despacho,
+        }
+      end
+
+      def hash_tp
+        @hash_tp ||= hash_comun.merge(
+          {
+            "CRISTAL ESPECIAL" => ot.cristal_especial,
+            "CRISTAL CON FORMA" => cristal_forma,
+            "TP ORIGINAL" => ot.piezas_tp,
+            "TP PROGRAMADOS" => ot.piezas_tp,
+            "M2" => to_excel_string(ot.metros_cuadrados_tp),
+            "MTL TP PROGRAMADO" => to_excel_string(ot.metros_lineales_tp),
+          }
+        )
+      end
+
+      def hash_dim
+        @hash_dim ||= hash_comun.merge(
+          {
+            "CRISTAL ESPECIAL" => "DIMENSIONADO",
+            "DIM ORIGINAL" => ot.piezas_dim,
+            "DIM PROGRAMADOS" => ot.piezas_dim,
+            "M2" => to_excel_string(ot.metros_cuadrados_dim),
+            "MTL DIM PROGRAMADO" => to_excel_string(ot.metros_lineales_dim),
+          }
+        )
+      end
+
+      private
+
+      def to_excel_string(number)
+        number.round(1).to_s.gsub(".", ",")
+      end
+
+      def cristal_forma
+        output_string = [ot.palillaje, ot.forma].join(" ").strip
+        output_string.eql?("") ? nil : output_string
+      end
+    end
+  end
+end
