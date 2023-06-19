@@ -58,67 +58,6 @@ module BPGlass
       @metros_lineales_dim ||= posiciones_dim.sum(&:metros_lineales)
     end
 
-    def tp_array
-      [
-        id,
-        obra,
-        cristal_especial,
-        [palillaje, forma].join(" ").strip,
-        cliente,
-        piezas_tp, #tp_original,
-        "", #dim_original,
-        piezas_tp, #tp_original,
-        "", #dim_original,
-        tps_fabricados,
-        dims_fabricados,
-        minutos,
-        to_excel_string(metros_cuadrados_tp), #metros_cuadrados,
-        fecha_ingreso,
-        fecha_fabricacion_real,
-        fecha_fabricacion_planificada,
-        fecha_despacho,
-        control_calidad,
-        estado_actual_produccion,
-        to_excel_string(metros_lineales_tp), #metros_lineales_programados,
-        metros_lineales_tp_fabricados,
-        "", #metros_lineales_dim_programados,
-      ]
-    end
-
-    def dim_array
-      [
-        id,
-        obra,
-        "DIMENSIONADO",
-        forma,
-        cliente,
-        "", #tp_original,
-        piezas_dim, #dim_original,
-        "", #tp_original,
-        piezas_dim, #dim_original,
-        tps_fabricados,
-        dims_fabricados,
-        minutos,
-        to_excel_string(metros_cuadrados_dim), #metros_cuadrados,
-        fecha_ingreso,
-        fecha_fabricacion_real,
-        fecha_fabricacion_planificada,
-        fecha_despacho,
-        control_calidad,
-        estado_actual_produccion,
-        "", #metros_lineales_programados,
-        metros_lineales_tp_fabricados,
-        to_excel_string(metros_lineales_dim), #metros_lineales_dim_programados,
-      ]
-    end
-
-    def output_arrays
-      out = []
-      out << tp_array unless piezas_tp.zero?
-      out << dim_array unless piezas_dim.zero?
-      out
-    end
-
     def cristal_especial
       short_names = []
 
@@ -158,27 +97,7 @@ module BPGlass
       Date.today.strftime("%d-%m-%Y")
     end
 
-    %W[
-      tps_fabricados
-      dims_fabricados
-      minutos
-      fecha_fabricacion_real
-      fecha_fabricacion_planificada
-      control_calidad
-      estado_actual_produccion
-      metros_lineales_tp_fabricados
-      metros_lineales_dim_fabricados
-    ].each do |method|
-      define_method(method) do
-        ""
-      end
-    end
-
     private
-
-    def to_excel_string(number)
-      number.round(1).to_s.gsub(".", ",")
-    end
 
     def posiciones_tp
       @posiciones_tp ||= posiciones.select(&:tp?)

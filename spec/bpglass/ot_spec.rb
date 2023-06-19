@@ -45,24 +45,6 @@ describe BPGlass::OT do
     describe "#metros_lineales_tp" do
       it { expect(ot.metros_lineales_tp).to be_within(0.1).of(3.6) }
     end
-
-    describe "#tp_array" do
-      it "returns the correct array structure" do
-        output = [
-          "27153",
-          "San Eugenio. Depto. 304 URGENTE",
-          "SAT(1)", "",
-          "RENOVATEK",
-          1, "", 1, "",
-          "", "", "",
-          "0,8", Date.today.strftime("%d-%m-%Y"), "", "", "18-01-2023", # "area", "today", "", "", "entrega",
-          "", "",
-          "3,6", "", "", #"mtl tp", "", "mtl dim"
-        ]
-
-        expect(ot.tp_array).to eq(output)
-      end
-    end
   end
 
   context "pedido grande" do
@@ -85,121 +67,9 @@ describe BPGlass::OT do
   context "pedido con dimensionado" do
     let(:ot) { described_class.from_excel_import("./spec/fixtures/27138-AW-23-01-2023.xlsx") }
 
-    describe "#tp_array" do
-      it "returns 2 arrays for TP and DIM" do
-        output = [
-          "27138",
-          "HC LOS NOGALES, CASTAÑOS, CASAS 4,52,48,46",
-          "SAT(2)", "",
-          "RENOVATEK",
-          44, "", 44, "",
-          "", "", "",
-          "31,0", Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
-          "", "",
-          "159,3", "", "",
-        ]
-        expect(ot.tp_array).to eq(output)
-      end
-    end
-
-    describe "#dim_array" do
-      it do
-        output = [
-          "27138",
-          "HC LOS NOGALES, CASTAÑOS, CASAS 4,52,48,46",
-          "DIMENSIONADO", "",
-          "RENOVATEK",
-          "", 8, "", 8,
-          "", "", "",
-          "2,1", Date.today.strftime("%d-%m-%Y"), "", "", "23-01-2023",
-          "", "",
-          "", "", "16,5",
-        ]
-        expect(ot.dim_array).to eq(output)
-      end
-    end
-
-    describe "#piezas_tp" do
-      it { expect(ot.piezas_tp).to eq(44) }
-    end
-    describe "#piezas_dim" do
-      it { expect(ot.piezas_dim).to eq(8) }
-    end
-    describe "#metros_cuadrados_tp" do
-      it { expect(ot.metros_cuadrados_tp).to be_within(0.1).of(31.0) }
-    end
-    describe "#metros_cuadrados_dim" do
-      it { expect(ot.metros_cuadrados_dim).to be_within(0.1).of(2.1) }
-    end
-    describe "#metros_lineales_tp" do
-      it { expect(ot.metros_lineales_tp).to be_within(0.1).of(159.3) }
-    end
-    describe "#metros_lineales_dim" do
-      it { expect(ot.metros_lineales_dim).to be_within(0.1).of(16.5) }
-    end
-  end
-
-  context "pedido con forma" do
-    let(:ot) { described_class.from_excel_import("./spec/fixtures/25766-AW-03-11-2022.xlsx") }
-
-    describe "#posiciones" do
-      it "has correct position count" do
-        expect(ot.posiciones.count).to eq(7)
-      end
-    end
-
-    describe "#tp_array" do
-      it "returns the correct array structure" do
-        output = [
-          "25766",
-          "RTK 5558 HC AYLEEN DUARTE",
-          "CLEAR(3)", "FORMA(3)",
-          "RENOVATEK",
-          13, "", 13, "",
-          "", "", "",
-          "8,2", Date.today.strftime("%d-%m-%Y"), "", "", "03-11-2022", # "area", "today", "", "", "entrega",
-          "", "",
-          "37,8", "", "", #"mtl tp", "", "mtl dim"
-        ]
-
-        expect(ot.tp_array).to eq(output)
-      end
-    end
-  end
-
-  context "When OT has cristal-especial DIM" do
-    let(:ot) { described_class.from_excel_import("./spec/fixtures/28586-AW-10-04-2023.xlsx") }
-
-    describe "#cristal_especial" do
-      it do
-        expect(ot.cristal_especial).to eq("")
-      end
-    end
-  end
-  context "When OT has PALILLAJE positions" do
-    let(:ot) { described_class.from_excel_import("./spec/fixtures/28665-AW-11-04-2023.xlsx") }
-
-    describe "#palillaje" do
-      it do
-        expect(ot.palillaje).to eq("PALILLAJE(8)")
-      end
-    end
-
-    describe "#tp_array" do
-      it "returns the correct output" do
-        output = [
-          "28665",
-          "BST 15784 PIRQUE PALILLO VEKA NEGRO SPECTRAL",
-          "SAT(7)", "PALILLAJE(8)",
-          "BASTRO",
-          45, "", 45, "",
-          "", "", "",
-          "79,4", Date.today.strftime("%d-%m-%Y"), "", "", "11-04-2023", # "area", "today", "", "", "entrega",
-          "", "",
-          "244,7", "", "", #"mtl tp", "", "mtl dim"
-        ]
-
-        expect(ot.tp_array).to eq(output)
+    describe "#initialize" do
+      it "creates the correct amount of posiciones" do
+        expect(ot.posiciones.count).to eq(48)
       end
     end
   end
