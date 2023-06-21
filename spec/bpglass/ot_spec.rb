@@ -32,12 +32,6 @@ describe BPGlass::OT do
       end
     end
 
-    describe "#cristal_especial" do
-      it do
-        expect(ot.cristal_especial).to eq("SAT(1)")
-      end
-    end
-
     describe "#metros_cuadrados_tp" do
       it { expect(ot.metros_cuadrados_tp).to be_within(0.1).of(0.8) }
     end
@@ -54,13 +48,6 @@ describe BPGlass::OT do
       it { expect(ot.piezas_tp).to eq(108) }
       it { expect(ot.piezas_dim).to eq(0) }
       it { expect(ot.posiciones.count).to eq(78) }
-    end
-
-    describe "#cristal_especial" do
-      it do
-        output = "LAM6(31) SAT(4)"
-        expect(ot.cristal_especial).to eq(output)
-      end
     end
   end
 

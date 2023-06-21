@@ -59,7 +59,7 @@ module BPGlass
       def hash_tp
         @hash_tp ||= hash_comun.merge(
           {
-            "CRISTAL ESPECIAL" => ot.cristal_especial,
+            "CRISTAL ESPECIAL" => cristal_especial_string,
             "CRISTAL CON FORMA" => cristal_forma,
             "TP ORIGINAL" => ot.piezas_tp,
             "TP PROGRAMADOS" => ot.piezas_tp,
@@ -82,6 +82,16 @@ module BPGlass
       end
 
       private
+
+      def cristal_especial_string
+        ot.posiciones
+          .select(&:tp?)
+          .flat_map { |pos| [pos.vidrio_1, pos.vidrio_2].map(&:short_name).uniq.compact * pos.cantidad }
+          .tally
+          .map { |short, count| "#{short}(#{count})" }
+          .sort
+          .join(" ")
+      end
 
       def to_excel_string(number)
         number.round(1).to_s.gsub(".", ",")

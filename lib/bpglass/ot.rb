@@ -58,25 +58,6 @@ module BPGlass
       @metros_lineales_dim ||= posiciones_dim.sum(&:metros_lineales)
     end
 
-    def cristal_especial
-      short_names = []
-
-      posiciones_tp.each do |posicion|
-        posicion.cantidad.times do
-          [posicion.vidrio_1, posicion.vidrio_2].uniq.each do |vidrio|
-            short_names << vidrio.short_name
-          end
-        end
-      end
-
-      short_names
-        .compact
-        .tally
-        .map { |short_name, count| "#{short_name}(#{count})" }
-        .sort
-        .join(" ")
-    end
-
     def forma
       count = posiciones_tp
         .select(&:forma?)
