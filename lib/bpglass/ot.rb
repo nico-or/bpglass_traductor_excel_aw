@@ -66,16 +66,12 @@ module BPGlass
       count.zero? ? "" : "FORMA(#{count})"
     end
 
-    def palillaje
-      count = posiciones_tp
-        .select(&:palillaje?)
-        .sum(&:cantidad)
-
-      count.zero? ? "" : "PALILLAJE(#{count})"
-    end
-
     def fecha_ingreso
       Date.today.strftime("%d-%m-%Y")
+    end
+
+    def posiciones_palillaje
+      posiciones.select(&:palillaje?)
     end
 
     private

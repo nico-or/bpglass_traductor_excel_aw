@@ -97,8 +97,13 @@ module BPGlass
         number.round(1).to_s.gsub(".", ",")
       end
 
+      def palillaje_string
+        count = ot.posiciones_palillaje.sum(&:cantidad)
+        count.zero? ? nil : "PALILLAJE(#{count})"
+      end
+
       def cristal_forma
-        output_string = [ot.palillaje, ot.forma].join(" ").strip
+        output_string = [palillaje_string, ot.forma].join(" ").strip
         output_string.eql?("") ? nil : output_string
       end
     end
