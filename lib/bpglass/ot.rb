@@ -35,27 +35,27 @@ module BPGlass
     end
 
     def piezas_tp
-      @piezas_tp ||= posiciones_tp.sum(&:cantidad)
+      posiciones_tp.sum(&:cantidad)
     end
 
     def piezas_dim
-      @piezas_dim ||= posiciones_dim.sum(&:cantidad)
+      posiciones_dim.sum(&:cantidad)
     end
 
     def metros_cuadrados_tp
-      @metros_cuadrados_tp ||= posiciones_tp.sum(&:metros_cuadrados)
+      posiciones_tp.sum(&:metros_cuadrados)
     end
 
     def metros_cuadrados_dim
-      @metros_cuadrados_dim ||= posiciones_dim.sum(&:metros_cuadrados)
+      posiciones_dim.sum(&:metros_cuadrados)
     end
 
     def metros_lineales_tp
-      @metros_lineales_tp ||= posiciones_tp.sum(&:metros_lineales)
+      posiciones_tp.sum(&:metros_lineales)
     end
 
     def metros_lineales_dim
-      @metros_lineales_dim ||= posiciones_dim.sum(&:metros_lineales)
+      posiciones_dim.sum(&:metros_lineales)
     end
 
     def fecha_ingreso
@@ -75,11 +75,11 @@ module BPGlass
     end
 
     def posiciones_tp
-      @posiciones_tp ||= posiciones.select(&:tp?)
+      posiciones.select(&:tp?)
     end
 
     def posiciones_dim
-      @posiciones_dim ||= posiciones.select(&:dim?)
+      posiciones.select(&:dim?)
     end
   end
 end

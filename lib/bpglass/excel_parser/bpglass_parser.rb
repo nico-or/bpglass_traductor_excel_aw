@@ -25,7 +25,7 @@ module BPGlass
       end
 
       def posiciones
-        @posiciones = entries.map { BPGlass::Posicion.from_hash(_1) }
+        @posiciones ||= entries.map { BPGlass::Posicion.from_hash(_1) }
       end
 
       def ot

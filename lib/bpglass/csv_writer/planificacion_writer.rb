@@ -47,7 +47,7 @@ module BPGlass
       end
 
       def hash_comun
-        @hash_comun ||= {
+        {
           "OT" => ot.id,
           "PROYECTO" => ot.obra,
           "CLIENTE" => ot.cliente,
@@ -57,7 +57,7 @@ module BPGlass
       end
 
       def hash_tp
-        @hash_tp ||= hash_comun.merge(
+        hash_comun.merge(
           {
             "CRISTAL ESPECIAL" => prevent_empty_strings(cristal_especial_string),
             "CRISTAL CON FORMA" => prevent_empty_strings(cristal_forma),
@@ -70,7 +70,7 @@ module BPGlass
       end
 
       def hash_dim
-        @hash_dim ||= hash_comun.merge(
+        hash_comun.merge(
           {
             "CRISTAL ESPECIAL" => "DIMENSIONADO",
             "DIM ORIGINAL" => ot.piezas_dim,
