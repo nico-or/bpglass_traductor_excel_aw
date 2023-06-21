@@ -74,8 +74,6 @@ module BPGlass
       posiciones.select(&:plantilla?)
     end
 
-    private
-
     def posiciones_tp
       @posiciones_tp ||= posiciones.select(&:tp?)
     end

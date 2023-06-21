@@ -84,8 +84,7 @@ module BPGlass
       private
 
       def cristal_especial_string
-        ot.posiciones
-          .select(&:tp?)
+        ot.posiciones_tp
           .flat_map { |pos| [pos.vidrio_1, pos.vidrio_2].map(&:short_name).uniq.compact * pos.cantidad }
           .tally
           .map { |short, count| "#{short}(#{count})" }
