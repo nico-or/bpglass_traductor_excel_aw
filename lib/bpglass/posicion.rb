@@ -47,6 +47,10 @@ module BPGlass
       BPGlass::Separadores[@separador]
     end
 
+    def referencia
+      @referencia
+    end
+
     def cantidad
       @cantidad.to_i
     end
