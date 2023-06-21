@@ -24,6 +24,7 @@ module BPGlass
           BPGlass::Posicion.new(
             vidrio_1: hash[:vidrio_1],
             vidrio_2: hash[:vidrio_2],
+            separador: hash[:separador],
             cantidad: hash[:cantidad],
             ancho: hash[:ancho].instance_of?(String) ? nil : hash[:ancho],
             alto: hash[:alto],

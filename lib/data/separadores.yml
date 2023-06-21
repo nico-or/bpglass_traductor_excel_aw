@@ -1,0 +1,61 @@
+---
+- :id: 10
+  :medida: 7.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 10 - Sep. 7.5 mm BR OSC
+- :id: 11
+  :medida: 9.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 11 - Sep. 9.5 mm BR OSC
+- :id: 12
+  :medida: 11.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 12 - Sep. 11.5 mm BR OSC
+- :id: 13
+  :medida: 14.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 13 - Sep. 14.5 mm BR OSC
+- :id: 14
+  :medida: 19.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 14 - Sep. 19.5 mm BR OSC
+- :id: 15
+  :medida: 5.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 15 - Sep. 5.5 mm BR OSC
+- :id: 20
+  :medida: 7.5
+  :color: :mate
+  :alternative_names:
+    - 20 - Sep. 7.5 mm MATE
+- :id: 21
+  :medida: 9.5
+  :color: :mate
+  :alternative_names:
+    - 21 - Sep. 9.5 mm MATE
+- :id: 22
+  :medida: 11.5
+  :color: :mate
+  :alternative_names:
+    - 22 - Sep. 11.5 mm MATE
+- :id: 23
+  :medida: 14.5
+  :color: :mate
+  :alternative_names:
+    - 23 - Sep. 14.5 mm MATE
+- :id: 25
+  :medida: 5.5
+  :color: :mate
+  :alternative_names:
+    - 25 - Sep. 5.5 mm MATE
+- :id: 31
+  :medida: 9.5
+  :color: :titanio
+  :alternative_names:
+    - 31 - Sep. 9.5 mm TITANIO

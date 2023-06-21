@@ -4,6 +4,7 @@ module BPGlass
       Posicion.new(
         vidrio_1: hash[:vidrio_1],
         vidrio_2: hash[:vidrio_2],
+        separador: hash[:separador],
         cantidad: hash[:cantidad],
         ancho: hash[:ancho],
         alto: hash[:alto],
@@ -40,6 +41,10 @@ module BPGlass
       return if @vidrio_2.nil?
 
       BPGlass::Cristales[@vidrio_2]
+    end
+
+    def separador
+      BPGlass::Separadores[@separador]
     end
 
     def cantidad
