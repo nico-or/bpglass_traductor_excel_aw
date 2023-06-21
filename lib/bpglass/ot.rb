@@ -58,20 +58,16 @@ module BPGlass
       @metros_lineales_dim ||= posiciones_dim.sum(&:metros_lineales)
     end
 
-    def forma
-      count = posiciones_tp
-        .select(&:forma?)
-        .sum(&:cantidad)
-
-      count.zero? ? "" : "FORMA(#{count})"
-    end
-
     def fecha_ingreso
       Date.today.strftime("%d-%m-%Y")
     end
 
     def posiciones_palillaje
       posiciones.select(&:palillaje?)
+    end
+
+    def posiciones_forma
+      posiciones.select(&:forma?)
     end
 
     private

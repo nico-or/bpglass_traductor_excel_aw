@@ -102,8 +102,13 @@ module BPGlass
         count.zero? ? nil : "PALILLAJE(#{count})"
       end
 
+      def forma_string
+        count = ot.posiciones_forma.sum(&:cantidad)
+        count.zero? ? nil : "FORMA(#{count})"
+      end
+
       def cristal_forma
-        output_string = [palillaje_string, ot.forma].join(" ").strip
+        output_string = [palillaje_string, forma_string].join(" ").strip
         output_string.eql?("") ? nil : output_string
       end
     end
