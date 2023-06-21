@@ -59,8 +59,8 @@ module BPGlass
       def hash_tp
         @hash_tp ||= hash_comun.merge(
           {
-            "CRISTAL ESPECIAL" => cristal_especial_string,
-            "CRISTAL CON FORMA" => cristal_forma,
+            "CRISTAL ESPECIAL" => prevent_empty_strings(cristal_especial_string),
+            "CRISTAL CON FORMA" => prevent_empty_strings(cristal_forma),
             "TP ORIGINAL" => ot.piezas_tp,
             "TP PROGRAMADOS" => ot.piezas_tp,
             "M2" => to_excel_string(ot.metros_cuadrados_tp),
@@ -110,6 +110,10 @@ module BPGlass
       def cristal_forma
         output_string = [palillaje_string, forma_string].join(" ").strip
         output_string.eql?("") ? nil : output_string
+      end
+
+      def prevent_empty_strings(string)
+        string.empty? ? nil : string
       end
     end
   end
