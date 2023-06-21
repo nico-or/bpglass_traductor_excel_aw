@@ -1,93 +1,93 @@
 ---
 - :id: 100
-  :alias:
+  :alternative_names:
     - 100 - Incoloro 04 mm
     - INC 4
   :especial: false
 - :id: 110
-  :alias:
+  :alternative_names:
     - 110 - Incoloro 05 mm
     - INC 5
   :especial: false
 - :id: 120
-  :alias:
+  :alternative_names:
     - 120 - Incoloro 06 mm
     - INC 6
   :especial: false
 - :id: 130
-  :alias:
+  :alternative_names:
     - 130 - Incoloro 08 mm
     - INC 8
   :especial: true
   :short_name: INC8
 - :id: 170
-  :alias:
+  :alternative_names:
     - 170 - Bronce 04 mm
   :especial: true
   :short_name: BRC4
 - :id: 180
-  :alias:
+  :alternative_names:
     - 180 - Bronce 05 mm
   :especial: true
   :short_name: BRC5
 - :id: 200
-  :alias:
+  :alternative_names:
     - 200 - Evergreen 06 mm
   :especial: true
   :short_name: OptiGreen
 - :id: 230
-  :alias:
+  :alternative_names:
     - 230 - Semilla 04 mm
   :especial: true
   :short_name: SEMI
 - :id: 260
-  :alias:
+  :alternative_names:
     - 260 - Saten 04 mm
     - SATEN 4
   :especial: true
   :short_name: SAT
 - :id: 280
-  :alias:
+  :alternative_names:
     - 280 - Ecl. Adv . Clear 06 mm
   :especial: true
   :short_name: CLEAR
 - :id: 290
-  :alias:
+  :alternative_names:
     - 290 - Ecl. Adv . Gris 06 mm
   :especial: true
   :short_name: GRIS
 - :id: 320
-  :alias:
+  :alternative_names:
     - 320 - Ecl. Adv . Ever Green 06 mm
   :especial: true
   :short_name: AdvGreen
 - :id: 350
-  :alias:
+  :alternative_names:
     - 350 - Laminado 3+3.1 Inc
   :especial: true
   :short_name: LAM6
 - :id: 360
-  :alias:
+  :alternative_names:
     - 360 - Laminado 4+4.1 Inc
   :especial: true
   :short_name: LAM8
 - :id: 379
-  :alias:
+  :alternative_names:
     - 379 - Laminado 2.5+2.6 Satén
   :especial: true
   :short_name: LAMSAT5
 - :id: 390
-  :alias:
+  :alternative_names:
     - 390 - Laminado 3+3.1 Acustico
   :especial: true
   :short_name: LAMAC6
 - :id: 400
-  :alias:
+  :alternative_names:
     - 400 - Laminado 4+4.1 Acustico
   :especial: true
   :short_name: LAMAC8
 - :id: 460
-  :alias:
+  :alternative_names:
     - 460 - Low-e 06 mm
   :especial: true
   :short_name: LOWE
