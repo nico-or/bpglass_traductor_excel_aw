@@ -83,4 +83,31 @@ describe BPGlass::CsvWriter::PlanificacionWriter do
       expect(csv).to eq(expected_output)
     end
   end
+
+  context "pedido con doble cristal especial" do
+    let(:csv_writer) do
+      filepath = "./spec/fixtures/bpglass_doble_especial.xlsx"
+      ot = BPGlass::OT.from_excel_import(filepath)
+      described_class.new(ot)
+    end
+
+    describe "#to_csv" do
+      it "returns the correct output" do
+        expected_output = [
+          "30211",
+          "RES. BRITANICA",
+          "LAM6(12)", nil,
+          "PATRICIO ESPINOSA",
+          12, nil, 12, nil,
+          nil, nil, nil,
+          "18,3", Date.today.strftime("%d-%m-%Y"), nil, nil, "23-06-2023",
+          nil, nil,
+          "71,4", nil, nil,
+        ].to_csv(col_sep: "\t")
+
+        csv = csv_writer.to_csv
+        expect(csv).to eq(expected_output)
+      end
+    end
+  end
 end

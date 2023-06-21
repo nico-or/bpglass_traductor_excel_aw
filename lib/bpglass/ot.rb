@@ -24,7 +24,7 @@ module BPGlass
       fecha_despacho:
     )
       @id = id
-      @obra = obra
+      @obra = obra.strip
       @cliente = cliente
       @fecha_despacho = fecha_despacho
       @posiciones = []
@@ -63,7 +63,7 @@ module BPGlass
 
       posiciones_tp.each do |posicion|
         posicion.cantidad.times do
-          [posicion.vidrio_1, posicion.vidrio_2].each do |vidrio|
+          [posicion.vidrio_1, posicion.vidrio_2].uniq.each do |vidrio|
             short_names << vidrio.short_name
           end
         end
