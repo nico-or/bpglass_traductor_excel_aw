@@ -110,4 +110,29 @@ describe BPGlass::CsvWriter::PlanificacionWriter do
       end
     end
   end
+
+  context "pedido con formas y plantillas" do
+    let(:csv_writer) do
+      filepath = "./spec/fixtures/bpglass_forma_plantilla.xlsx"
+      ot = BPGlass::OT.from_excel_import(filepath)
+      described_class.new(ot)
+    end
+
+    it "returns the correct CSV lines" do
+      expected_output = [
+        "25766",
+        "RTK 5558 HC AYLEEN DUARTE",
+        nil, "FORMA(3) PLANTILLA(2)",
+        "RENOVATEK",
+        13, nil, 13, nil,
+        nil, nil, nil,
+        "8,2", Date.today.strftime("%d-%m-%Y"), nil, nil, "03-11-2022",
+        nil, nil,
+        "37,8", nil, nil,
+      ].to_csv(col_sep: "\t")
+
+      csv = csv_writer.to_csv
+      expect(csv).to eq(expected_output)
+    end
+  end
 end

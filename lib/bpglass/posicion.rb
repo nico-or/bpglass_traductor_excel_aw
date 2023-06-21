@@ -70,8 +70,16 @@ module BPGlass
       vidrio_2.nil?
     end
 
+    def forma
+      @forma
+    end
+
     def forma?
-      ![nil, ""].include?(@forma)
+      ["F1", "F2"].include?(forma)
+    end
+
+    def plantilla?
+      ["F3"].include?(forma)
     end
 
     def palillaje?

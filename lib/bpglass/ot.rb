@@ -70,6 +70,10 @@ module BPGlass
       posiciones.select(&:forma?)
     end
 
+    def posiciones_plantilla
+      posiciones.select(&:plantilla?)
+    end
+
     private
 
     def posiciones_tp
