@@ -20,10 +20,6 @@ module BPGlass
         @filepath = filepath
       end
 
-      def file
-        @file ||= Roo::Excelx.new(filepath)
-      end
-
       def posiciones
         @posiciones ||= entries.map { BPGlass::Posicion.from_hash(_1) }
       end
@@ -44,6 +40,10 @@ module BPGlass
       end
 
       private
+
+      def file
+        @file ||= Roo::Excelx.new(filepath)
+      end
 
       def entries
         @entries ||= file.parse(ROO_MATCHER)
