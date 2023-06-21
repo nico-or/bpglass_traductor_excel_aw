@@ -25,18 +25,14 @@ module BPGlass
       end
 
       def ot
-        xlsx = Roo::Excelx.new(filepath)
-
-        ot = BPGlass::OT.new(
-          id: xlsx.cell(*Roo::Utils.extract_coordinate("J2")),
-          obra: xlsx.cell(*Roo::Utils.extract_coordinate("C6")),
-          cliente: xlsx.cell(*Roo::Utils.extract_coordinate("C4")),
-          fecha_despacho: xlsx.cell(*Roo::Utils.extract_coordinate("N4")),
-        )
-
-        posiciones.each { |pos| ot.posiciones << pos }
-
-        ot
+        BPGlass::OT.new(
+          id: file.cell(*Roo::Utils.extract_coordinate("J2")),
+          obra: file.cell(*Roo::Utils.extract_coordinate("C6")),
+          cliente: file.cell(*Roo::Utils.extract_coordinate("C4")),
+          fecha_despacho: file.cell(*Roo::Utils.extract_coordinate("N4")),
+        ).tap do |ot|
+          posiciones.each { |pos| ot.posiciones << pos }
+        end
       end
 
       private
