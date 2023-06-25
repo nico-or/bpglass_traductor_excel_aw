@@ -7,8 +7,4 @@ require_relative "bpglass/excel_parser"
 require_relative "bpglass/csv_writer"
 
 module BPGlass
-  def self.load_files(dir_path = "./Archivos AW")
-    filepaths = Dir.glob("#{dir_path}/*.xlsx")
-    filepaths.map { |filepath| OT.from_excel_import(filepath) }
-  end
 end
