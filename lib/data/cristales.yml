@@ -87,6 +87,13 @@
   :especial: true
   :short_name: LAM8
   :carga_masiva_name: LAM 8
+- :id: 370
+  :alternative_names:
+    - 370 - laminado 5+5.1 inc
+    - lam 10
+  :especial: true
+  :short_name: LAM10
+  :carga_masiva_name: LAM 10
 - :id: 379
   :alternative_names:
     - 379 - laminado 2.5+2.6 satén
