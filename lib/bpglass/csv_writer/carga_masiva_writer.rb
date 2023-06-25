@@ -61,12 +61,8 @@ module BPGlass
         }
       end
 
-      def float_to_excel_string(number)
-        number.to_s.gsub(".", ",")
-      end
-
       def separador_string(separador)
-        "Sep #{float_to_excel_string(separador.medida)}"
+        "Sep #{Utilities.number_to_excel_string(separador.medida)}"
       end
 
       def separador_color_string(separador)

@@ -63,8 +63,8 @@ module BPGlass
             "CRISTAL CON FORMA" => prevent_empty_strings(cristal_forma),
             "TP ORIGINAL" => ot.piezas_tp,
             "TP PROGRAMADOS" => ot.piezas_tp,
-            "M2" => to_excel_string(ot.metros_cuadrados_tp),
-            "MTL TP PROGRAMADO" => to_excel_string(ot.metros_lineales_tp),
+            "M2" => Utilities.number_to_excel_string(ot.metros_cuadrados_tp),
+            "MTL TP PROGRAMADO" => Utilities.number_to_excel_string(ot.metros_lineales_tp),
           }
         )
       end
@@ -75,8 +75,8 @@ module BPGlass
             "CRISTAL ESPECIAL" => "DIMENSIONADO",
             "DIM ORIGINAL" => ot.piezas_dim,
             "DIM PROGRAMADOS" => ot.piezas_dim,
-            "M2" => to_excel_string(ot.metros_cuadrados_dim),
-            "MTL DIM PROGRAMADO" => to_excel_string(ot.metros_lineales_dim),
+            "M2" => Utilities.number_to_excel_string(ot.metros_cuadrados_dim),
+            "MTL DIM PROGRAMADO" => Utilities.number_to_excel_string(ot.metros_lineales_dim),
           }
         )
       end
@@ -90,10 +90,6 @@ module BPGlass
           .map { |short, count| "#{short}(#{count})" }
           .sort
           .join(" ")
-      end
-
-      def to_excel_string(number)
-        number.round(1).to_s.gsub(".", ",")
       end
 
       def palillaje_string

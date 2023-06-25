@@ -9,6 +9,7 @@ module BPGlass
     end
 
     def self.[](query)
+      query = Utilities.normalize_text(query.to_s) if query.instance_of?(String)
       return if query.eql?("")
 
       cristal = DB.find { |cristal| cristal.id.eql?(query) } ||
