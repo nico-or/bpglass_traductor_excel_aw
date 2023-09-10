@@ -42,6 +42,14 @@ module BPGlass
       posiciones_dim.sum(&:cantidad)
     end
 
+    def piezas_forma
+      posiciones_forma.sum(&:cantidad)
+    end
+
+    def piezas_palillaje
+      posiciones_palillaje.sum(&:cantidad)
+    end
+
     def metros_cuadrados_tp
       posiciones_tp.sum(&:metros_cuadrados)
     end
