@@ -6,8 +6,8 @@ describe BPGlass::Clientes do
     expect(described_class.alias(fullname)).to eq(cliente_alias)
   end
 
-  it "raises an error if the YAML entry doesn't exists" do
+  it "returns the raw cliente name if the YAML entry doesn't exists" do
     cliente_name = "not found"
-    expect { described_class.alias(cliente_name) }.to raise_error(ArgumentError)
+    expect(described_class.alias(cliente_name)).to eq(cliente_name)
   end
 end
