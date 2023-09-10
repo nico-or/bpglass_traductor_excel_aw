@@ -12,7 +12,7 @@ AW_FILENAMES = Dir.children(DEFAULT_DIR_PATH)
   .map { |filename| DEFAULT_DIR_PATH.join(filename) }.sort
 
 # file where OT output will be written
-OUTPUT_FILENAME = "out.txt"
+OUTPUT_FILENAME = "planificacion.txt"
 
 File.open(OUTPUT_FILENAME, "w") do |output_file|
   AW_FILENAMES.each do |aw_file|
