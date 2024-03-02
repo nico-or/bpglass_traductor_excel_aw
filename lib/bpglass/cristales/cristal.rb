@@ -1,13 +1,13 @@
 module BPGlass
   module Cristales
     Cristal = Struct.new(
-      "Cristal",
+      'Cristal',
       :id,
       :alternative_names,
       :short_name,
       :especial,
       :carga_masiva_name,
-      keyword_init: true,
+      keyword_init: true
     ) do
       def especial?
         especial

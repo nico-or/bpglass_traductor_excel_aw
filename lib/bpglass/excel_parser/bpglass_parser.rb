@@ -1,17 +1,17 @@
-require "roo"
+require 'roo'
 
 module BPGlass
   module ExcelParser
     class BPGlassParser
       ROO_MATCHER = {
-        vidrio_1: "Vidrio 1",
-        vidrio_2: "Vidrio 2",
-        separador: "Separador",
-        cantidad: "Pzas.",
-        ancho: "Ancho",
-        alto: "Alto",
-        referencia: "Referencia",
-        forma: "Forma",
+        vidrio_1: 'Vidrio 1',
+        vidrio_2: 'Vidrio 2',
+        separador: 'Separador',
+        cantidad: 'Pzas.',
+        ancho: 'Ancho',
+        alto: 'Alto',
+        referencia: 'Referencia',
+        forma: 'Forma'
       }
 
       attr_reader :filepath
@@ -26,10 +26,10 @@ module BPGlass
 
       def ot
         BPGlass::OT.new(
-          id: file.cell(*Roo::Utils.extract_coordinate("J2")),
-          obra: file.cell(*Roo::Utils.extract_coordinate("C6")),
-          cliente: file.cell(*Roo::Utils.extract_coordinate("C4")),
-          fecha_despacho: file.cell(*Roo::Utils.extract_coordinate("N4")),
+          id: file.cell(*Roo::Utils.extract_coordinate('J2')),
+          obra: file.cell(*Roo::Utils.extract_coordinate('C6')),
+          cliente: file.cell(*Roo::Utils.extract_coordinate('C4')),
+          fecha_despacho: file.cell(*Roo::Utils.extract_coordinate('N4'))
         ).tap do |ot|
           posiciones.each { |pos| ot.posiciones << pos }
         end
@@ -43,7 +43,7 @@ module BPGlass
 
       def entries
         @entries ||= file.parse(ROO_MATCHER)
-          .reject { |hash| ["", nil].include?(hash[:vidrio_1]) }
+                         .reject { |hash| ['', nil].include?(hash[:vidrio_1]) }
       end
     end
   end

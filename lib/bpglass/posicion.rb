@@ -9,7 +9,7 @@ module BPGlass
         ancho: hash[:ancho],
         alto: hash[:alto],
         referencia: hash[:referencia],
-        forma: hash[:forma],
+        forma: hash[:forma]
       )
     end
 
@@ -84,15 +84,15 @@ module BPGlass
     end
 
     def forma?
-      ["F1", "F2"].include?(forma)
+      %w[F1 F2].include?(forma)
     end
 
     def plantilla?
-      ["F3"].include?(forma)
+      ['F3'].include?(forma)
     end
 
     def palillaje?
-      @referencia.match? /PALILLAJE/
+      @referencia.match?(/PALILLAJE/)
     end
   end
 end

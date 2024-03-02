@@ -14,7 +14,7 @@ module BPGlass
       :posiciones,
       :id,
       :obra,
-      :fecha_despacho,
+      :fecha_despacho
     )
 
     def initialize(
@@ -67,7 +67,7 @@ module BPGlass
     end
 
     def fecha_ingreso
-      Date.today.strftime("%d-%m-%Y")
+      Date.today.strftime('%d-%m-%Y')
     end
 
     def posiciones_palillaje

@@ -1,10 +1,10 @@
 describe BPGlass::Posicion do
-  context "single TP" do
+  context 'single TP' do
     let(:posicion) do
-      described_class.new(vidrio_1: "100 - Incoloro 04 mm",
-                          vidrio_2: "260 - Saten 04 mm",
-                          cantidad: "1",
-                          ancho: "977",
+      described_class.new(vidrio_1: '100 - Incoloro 04 mm',
+                          vidrio_2: '260 - Saten 04 mm',
+                          cantidad: '1',
+                          ancho: '977',
                           alto: 825)
     end
 
@@ -20,12 +20,12 @@ describe BPGlass::Posicion do
     it { expect(posicion.forma?).to eq(false) }
   end
 
-  context "multiple TP" do
+  context 'multiple TP' do
     let(:posicion) do
-      described_class.new(vidrio_1: "100 - Incoloro 04 mm",
-                          vidrio_2: "260 - Saten 04 mm",
+      described_class.new(vidrio_1: '100 - Incoloro 04 mm',
+                          vidrio_2: '260 - Saten 04 mm',
                           cantidad: 2,
-                          ancho: "977",
+                          ancho: '977',
                           alto: 825)
     end
 
@@ -36,9 +36,9 @@ describe BPGlass::Posicion do
     it { expect(posicion.metros_lineales).to be_within(0.1).of(7.2) }
   end
 
-  context "DIM" do
+  context 'DIM' do
     let(:posicion) do
-      described_class.new(vidrio_1: "230 - Semilla 04 mm",
+      described_class.new(vidrio_1: '230 - Semilla 04 mm',
                           cantidad: 1,
                           ancho: 600,
                           alto: 605)
@@ -56,15 +56,15 @@ describe BPGlass::Posicion do
     it { expect(posicion.forma?).to eq(false) }
   end
 
-  context "Forma" do
+  context 'Forma' do
     let(:posicion) do
-      described_class.new(vidrio_1: "110 - Incoloro 05 mm",
-                          vidrio_2: "280 - Ecl. Adv . Clear 06 mm",
-                          separador: "12 - Sep. 11.5 mm BR OSC",
+      described_class.new(vidrio_1: '110 - Incoloro 05 mm',
+                          vidrio_2: '280 - Ecl. Adv . Clear 06 mm',
+                          separador: '12 - Sep. 11.5 mm BR OSC',
                           cantidad: 2,
                           ancho: 645,
                           alto: 1850,
-                          forma: "F1")
+                          forma: 'F1')
     end
 
     it { expect(posicion.tp?).to eq(true) }
@@ -72,16 +72,16 @@ describe BPGlass::Posicion do
     it { expect(posicion.forma?).to eq(true) }
   end
 
-  describe ".from_hash" do
-    context "TP hash" do
+  describe '.from_hash' do
+    context 'TP hash' do
       let(:posicion) do
         hash = {
           vidrio_1: 100,
-          vidrio_2: "INC 4",
-          separador: "",
+          vidrio_2: 'INC 4',
+          separador: '',
           cantidad: 0,
           ancho: 0,
-          alto: 0,
+          alto: 0
         }
 
         described_class.from_hash(hash)

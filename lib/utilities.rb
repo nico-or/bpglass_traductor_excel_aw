@@ -4,13 +4,13 @@ module Utilities
     number
       .round(1)
       .to_s
-      .gsub(".", ",")
+      .gsub('.', ',')
   end
 
   def self.normalize_text(text)
     text
       .strip
       .downcase
-      .gsub(/\s+/, " ")
+      .gsub(/\s+/, ' ')
   end
 end

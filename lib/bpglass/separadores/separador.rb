@@ -1,12 +1,12 @@
 module BPGlass
   module Separadores
     Separador = Struct.new(
-      "Separador",
+      'Separador',
       :id,
       :medida,
       :color,
       :alternative_names,
-      keyword_init: true,
+      keyword_init: true
     )
   end
 end
