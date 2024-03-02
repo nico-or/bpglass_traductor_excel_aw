@@ -84,7 +84,7 @@ describe BPGlass::Posicion do
           alto: 0,
         }
 
-        described_class.new(hash)
+        described_class.from_hash(hash)
       end
 
       it { expect(posicion.vidrio_1).to eq(BPGlass::Cristales[100]) }
