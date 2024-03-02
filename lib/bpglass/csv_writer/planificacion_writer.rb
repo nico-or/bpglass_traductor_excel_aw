@@ -40,7 +40,7 @@ module BPGlass
       end
 
       def to_csv()
-        CSV.generate("", CSV_OPTIONS) do |csv|
+        CSV.generate("", **CSV_OPTIONS) do |csv|
           csv << hash_tp unless ot.piezas_tp.zero?
           csv << hash_dim unless ot.piezas_dim.zero?
         end

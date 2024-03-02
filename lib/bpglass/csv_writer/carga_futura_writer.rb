@@ -43,7 +43,7 @@ module BPGlass
       end
 
       def to_csv()
-        CSV.generate("", CSV_OPTIONS) do |csv|
+        CSV.generate("", **CSV_OPTIONS) do |csv|
           csv << hash_comun
         end
       end

@@ -32,7 +32,7 @@ module BPGlass
       end
 
       def to_csv()
-        CSV.generate("", CSV_OPTIONS) do |csv|
+        CSV.generate("", **CSV_OPTIONS) do |csv|
           ot.posiciones.each do |posicion|
             csv << hash_posicion(posicion)
           end
