@@ -84,7 +84,7 @@ module BPGlass
     end
 
     def forma?
-      %w[F1 F2].include?(forma)
+      %w[F1 F2 F4 F5 F6 F7].include?(forma)
     end
 
     def plantilla?
