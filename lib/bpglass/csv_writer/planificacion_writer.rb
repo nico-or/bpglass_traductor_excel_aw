@@ -93,17 +93,17 @@ module BPGlass
       end
 
       def palillaje_string
-        count = ot.posiciones_palillaje.sum(&:cantidad)
+        count = ot.piezas_palillaje
         count.zero? ? nil : "PALILLAJE(#{count})"
       end
 
       def forma_string
-        count = ot.posiciones_forma.sum(&:cantidad)
+        count = ot.piezas_forma
         count.zero? ? nil : "FORMA(#{count})"
       end
 
       def plantilla_string
-        count = ot.posiciones_plantilla.sum(&:cantidad)
+        count = ot.piezas_plantilla
         count.zero? ? nil : "PLANTILLA(#{count})"
       end
 
