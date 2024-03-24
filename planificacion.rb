@@ -18,13 +18,8 @@ OUTPUT_FILENAME = 'planificacion.txt'
 File.open(OUTPUT_FILENAME, 'w') do |output_file|
   AW_FILENAMES.each do |aw_file|
     puts "Processing: #{aw_file}"
-    begin
-      ot = BPGlass::OT.from_excel_import(aw_file)
-      writer = BPGlass::CsvWriter::PlanificacionWriter.new(ot)
-      output_file.write(writer.to_csv)
-    rescue StandardError => e
-      puts "Error while processing: #{aw_file}"
-      puts e
-    end
+    ot = BPGlass::OT.from_excel_import(aw_file)
+    writer = BPGlass::CsvWriter::PlanificacionWriter.new(ot)
+    output_file.write(writer.to_csv)
   end
 end
