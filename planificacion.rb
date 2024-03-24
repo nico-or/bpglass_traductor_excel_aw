@@ -6,7 +6,7 @@ require_relative 'lib/bpglass'
 DEFAULT_DIR_PATH = Pathname.new('./Archivos AW')
 
 # matches filenames like 30180-AW-27-06-2023.xlsx
-BPGLASS_FILENAME_REGEX = /\d{5}-AW-\d{2}-\d{2}-\d{4}\.xlsx/
+BPGLASS_FILENAME_REGEX = /\d+-AW[-_]\d{2}[-_]\d{2}[-_]\d{4}\.xlsx/.freeze
 
 AW_FILENAMES = Dir.children(DEFAULT_DIR_PATH)
                   .select { |filename| filename.match? BPGLASS_FILENAME_REGEX }
