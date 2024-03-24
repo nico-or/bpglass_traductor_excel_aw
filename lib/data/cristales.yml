@@ -39,6 +39,7 @@
 - :id: 200
   :alternative_names:
     - 200 - evergreen 06 mm
+    - 200 - ever green06 mm
   :especial: true
   :short_name: OptiGreen
   :carga_masiva_name: EVER GREEN 6
@@ -120,3 +121,34 @@
   :especial: true
   :short_name: LOWE
   :carga_masiva_name: LOW-E 6
+- :id: 250
+  :alternative_names:
+    - 250 - acanalado 04 mm
+  :especial: true
+  :short_name: ACAN
+  :carga_masiva_name:
+- :id: 430
+  :alternative_names:
+    - planistar sun 6
+    - 430 - planistar sun 6
+  :especial: true
+  :short_name: PLAN
+  :carga_masiva_name:
+- :id: 530
+  :alternative_names:
+    - 530 - espejo 4mm
+  :especial: true
+  :short_name: ESP4
+  :carga_masiva_name:
+- :id: 450
+  :alternative_names:
+    - 450 - blue green 06 mm
+  :especial: true
+  :short_name: BLG6
+  :carga_masiva_name:
+- :id: 600
+  :alternative_names:
+    - 600 - reflect float clear 4mm
+  :especial: true
+  :short_name: RFLT4
+  :carga_masiva_name:
