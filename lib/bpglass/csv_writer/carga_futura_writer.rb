@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   module CsvWriter
     class CargaFuturaWriter
@@ -29,12 +31,12 @@ module BPGlass
         'Color Palillo',
         'Tipo Palillo',
         'Fecha Fabricacion'
-      ]
+      ].freeze
 
       CSV_OPTIONS = {
         headers: CSV_HEADERS,
         col_sep: "\t"
-      }
+      }.freeze
 
       attr_reader(:ot)
 
@@ -43,7 +45,7 @@ module BPGlass
       end
 
       def to_csv
-        CSV.generate('', **CSV_OPTIONS) do |csv|
+        CSV.generate(**CSV_OPTIONS) do |csv|
           csv << hash_comun
         end
       end

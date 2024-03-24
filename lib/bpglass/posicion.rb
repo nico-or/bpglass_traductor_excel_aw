@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   class Posicion
     def self.from_hash(hash)
@@ -47,9 +49,7 @@ module BPGlass
       BPGlass::Separadores[@separador]
     end
 
-    def referencia
-      @referencia
-    end
+    attr_reader :referencia, :forma
 
     def cantidad
       @cantidad.to_i
@@ -77,10 +77,6 @@ module BPGlass
 
     def dim?
       vidrio_2.nil?
-    end
-
-    def forma
-      @forma
     end
 
     def forma?

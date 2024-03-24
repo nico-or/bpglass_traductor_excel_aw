@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   module Cristales
     Cristal = Struct.new(

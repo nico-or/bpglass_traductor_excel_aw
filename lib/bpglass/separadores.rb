@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 
 require_relative 'separadores/separador'
@@ -15,7 +17,7 @@ module BPGlass
       separador = DB.find { |separador| separador.id.eql?(query) } ||
                   DB.find { |separador| separador.alternative_names.include?(query) }
 
-      raise ArgumentError.new("Unsupported Separador: #{query}") unless separador
+      raise ArgumentError, "Unsupported Separador: #{query}" unless separador
 
       separador
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   class OT
     def self.from_excel_import(filepath)

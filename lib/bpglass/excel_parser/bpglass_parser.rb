@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'roo'
 
 module BPGlass
@@ -12,7 +14,7 @@ module BPGlass
         alto: 'Alto',
         referencia: 'Referencia',
         forma: 'Forma'
-      }
+      }.freeze
 
       attr_reader :filepath
 

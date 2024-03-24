@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   module Separadores
     Separador = Struct.new(

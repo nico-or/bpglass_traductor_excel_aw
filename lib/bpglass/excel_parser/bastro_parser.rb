@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'roo-xls'
 
 module BPGlass
@@ -11,7 +13,7 @@ module BPGlass
         ancho: 'Ancho',
         alto: 'Alto',
         referencia: 'Referencia Item'
-      }
+      }.freeze
 
       attr_reader :filepath
 

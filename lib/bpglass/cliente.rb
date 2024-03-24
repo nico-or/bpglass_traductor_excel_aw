@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 
 module BPGlass
@@ -12,7 +14,6 @@ module BPGlass
       cliente = DB.find { |hash| hash[:nombre].eql? cliente_name }
 
       # raise ArgumentError.new("Can't find #{cliente_name} in #{CLIENTE_DB_FILENAME}") if cliente.nil?
-
       return cliente_name unless cliente
 
       cliente[:alias]

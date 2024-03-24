@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   module CsvWriter
     class PlanificacionWriter
@@ -26,12 +28,12 @@ module BPGlass
         'MTL TP FABRICADOS',
         'MTL DIM PROGRAMADO'
         # "MTL DIM FABRICADOS",
-      ]
+      ].freeze
 
       CSV_OPTIONS = {
         headers: CSV_HEADERS,
         col_sep: "\t"
-      }
+      }.freeze
 
       attr_reader(:ot)
 
@@ -40,7 +42,7 @@ module BPGlass
       end
 
       def to_csv
-        CSV.generate('', **CSV_OPTIONS) do |csv|
+        CSV.generate(**CSV_OPTIONS) do |csv|
           csv << hash_tp unless ot.piezas_tp.zero?
           csv << hash_dim unless ot.piezas_dim.zero?
         end

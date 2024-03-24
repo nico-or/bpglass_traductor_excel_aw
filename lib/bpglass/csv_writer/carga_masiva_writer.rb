@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BPGlass
   module CsvWriter
     class CargaMasivaWriter
@@ -17,13 +19,13 @@ module BPGlass
         'Cantidad verticales',
         'Cantidad horizontal',
         'Referencia'
-      ]
+      ].freeze
 
       CSV_OPTIONS = {
         headers: CSV_HEADERS,
         write_headers: true,
         col_sep: "\t"
-      }
+      }.freeze
 
       attr_reader(:ot)
 
@@ -32,7 +34,7 @@ module BPGlass
       end
 
       def to_csv
-        CSV.generate('', **CSV_OPTIONS) do |csv|
+        CSV.generate(**CSV_OPTIONS) do |csv|
           ot.posiciones.each do |posicion|
             csv << hash_posicion(posicion)
           end
