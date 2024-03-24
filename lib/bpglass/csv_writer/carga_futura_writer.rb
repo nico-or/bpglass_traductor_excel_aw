@@ -60,8 +60,11 @@ module BPGlass
           'Cliente 2' => ot.cliente,
           'Fecha Retiro' => ot.fecha_despacho,
           'Retrocede x dias' => 1,
+          'CANT TP' => prevent_zero_string(ot.piezas_tp),
+          'CANT DIM' => prevent_zero_string(ot.piezas_dim),
           'Palillos' => prevent_zero_string(ot.piezas_palillaje),
-          'Formas' => prevent_zero_string(ot.piezas_forma)
+          'Formas' => prevent_zero_string(ot.piezas_forma),
+          'Fabricar' => 'SI'
         }
       end
 
