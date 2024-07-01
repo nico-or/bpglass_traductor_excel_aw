@@ -7,6 +7,7 @@ require_relative 'bpglass/cristales'
 require_relative 'bpglass/separadores'
 require_relative 'bpglass/excel_parser'
 require_relative 'bpglass/csv_writer'
+require_relative 'bpglass/json_writer'
 
 require_relative 'utilities'
 
