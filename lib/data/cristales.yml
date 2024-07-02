@@ -5,6 +5,12 @@
     - inc 4
   :especial: false
   :carga_masiva_name: INC 4
+- :id: 101
+  :alternative_names:
+    - 101 - Incoloro 03 mm
+    - inc 3
+  :especial: false
+  :carga_masiva_name: INC 3
 - :id: 110
   :alternative_names:
     - 110 - incoloro 05 mm
@@ -56,6 +62,13 @@
   :especial: true
   :short_name: SAT
   :carga_masiva_name: SATEN 4
+- :id: 270
+  :alternative_names:
+    - 270 - saten 05 mm
+    - saten 5
+  :especial: true
+  :short_name: SAT5
+  :carga_masiva_name: SATEN 5
 - :id: 280
   :alternative_names:
     - 280 - ecl. adv . clear 06 mm
@@ -101,6 +114,12 @@
   :especial: true
   :short_name: LAMSAT5
   :carga_masiva_name: LAM SATEN 5
+- :id: 380
+  :alternative_names:
+    - 380 - laminado 3+3.1 saten
+  :especial: true
+  :short_name: LAMSAT6
+  :carga_masiva_name: LAM SATEN 6
 - :id: 390
   :alternative_names:
     - 390 - laminado 3+3.1 acustico
