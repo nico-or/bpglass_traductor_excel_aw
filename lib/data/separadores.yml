@@ -30,7 +30,9 @@
   :color: :bronce_oscuro
   :alternative_names:
     - 14 - sep. 19.5 mm br osc
+    - 14 - sep 19.5 br osc
     - sep. 20 bronce
+    - sep 19,5 bronce oscuro
 - :id: 15
   :medida: 5.5
   :color: :bronce_oscuro
@@ -67,8 +69,10 @@
   :alternative_names:
     - 25 - sep. 5.5 mm mate
     - sep. 6 mate
+    - sep. 5.5 mm mate
 - :id: 31
   :medida: 9.5
   :color: :titanio
   :alternative_names:
     - 31 - sep. 9.5 mm titanio
+    - 31 - sep 9,5mm titanio
