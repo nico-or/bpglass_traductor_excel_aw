@@ -10,7 +10,7 @@ describe BPGlass::CsvWriter::PlanificacionWriter do
       expected_output = [
         '27138',
         'HC LOS NOGALES, CASTAÑOS, CASAS 4,52,48,46',
-        'SAT(2)', nil,
+        'SAT4(2)', nil,
         'RENOVATEK',
         44, nil, 44, nil,
         nil, nil, nil,
@@ -70,7 +70,7 @@ describe BPGlass::CsvWriter::PlanificacionWriter do
       expected_output = [
         '28665',
         'BST 15784 PIRQUE PALILLO VEKA NEGRO SPECTRAL',
-        'SAT(7)', 'PALILLAJE(8)',
+        'SAT4(7)', 'PALILLAJE(8)',
         'BASTRO',
         45, nil, 45, nil,
         nil, nil, nil,
