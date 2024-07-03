@@ -3,3 +3,7 @@ Archivos AW
 *.csv
 *.txt
 *lock*
+*.xls
+*.xlsx
+*.json
+*.jsonl
