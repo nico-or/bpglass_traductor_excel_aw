@@ -17,6 +17,7 @@
   :color: :bronce_oscuro
   :alternative_names:
     - 12 - sep. 11.5 mm br osc
+    - 12 - sep 11,5mm br osc
     - sep. 12 bronce
     - sep. 12 super spacer
 - :id: 13
@@ -33,12 +34,18 @@
     - 14 - sep 19.5 br osc
     - sep. 20 bronce
     - sep 19,5 bronce oscuro
+    - sep. 19.5 mm br
 - :id: 15
   :medida: 5.5
   :color: :bronce_oscuro
   :alternative_names:
     - 15 - sep. 5.5 mm br osc
     - sep. 6 bronce
+- :id: 16
+  :medida: 16.5
+  :color: :bronce_oscuro
+  :alternative_names:
+    - 16 - separador 16,5mm bronce oscuro
 - :id: 20
   :medida: 7.5
   :color: :mate
@@ -70,9 +77,21 @@
     - 25 - sep. 5.5 mm mate
     - sep. 6 mate
     - sep. 5.5 mm mate
+- :id: 30
+  :medida: 7.5
+  :color: :titanio
+  :alternative_names:
+    - 30 - sep. 7.5mm titanio
+    - 30 - sep 7,5mm titanio
 - :id: 31
   :medida: 9.5
   :color: :titanio
   :alternative_names:
     - 31 - sep. 9.5 mm titanio
     - 31 - sep 9,5mm titanio
+- :id: 32
+  :medida: 11.5
+  :color: :titanio
+  :alternative_names:
+    - 32 - sep. 11.5mm titanio
+    - 32 - sep 11,5mm titanio

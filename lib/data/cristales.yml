@@ -1,16 +1,16 @@
 ---
-- :id: 100
-  :alternative_names:
-    - 100 - incoloro 04 mm
-    - inc 4
-  :especial: false
-  :carga_masiva_name: INC 4
 - :id: 101
   :alternative_names:
     - 101 - Incoloro 03 mm
     - inc 3
   :especial: false
   :carga_masiva_name: INC 3
+- :id: 100
+  :alternative_names:
+    - 100 - incoloro 04 mm
+    - inc 4
+  :especial: false
+  :carga_masiva_name: INC 4
 - :id: 110
   :alternative_names:
     - 110 - incoloro 05 mm
@@ -33,6 +33,7 @@
 - :id: 170
   :alternative_names:
     - 170 - bronce 04 mm
+    - 170 - bronce 4 mm
   :especial: true
   :short_name: BRC4
   :carga_masiva_name: BR 4
@@ -104,6 +105,7 @@
 - :id: 370
   :alternative_names:
     - 370 - laminado 5+5.1 inc
+    - 571 - laminado 5+5.1 inc
     - lam 10
   :especial: true
   :short_name: LAM10
@@ -117,6 +119,8 @@
 - :id: 380
   :alternative_names:
     - 380 - laminado 3+3.1 saten
+    - lam inc3+pvb leche+inc 3
+    - 381 - lam inc3+pvb leche+inc 3
   :especial: true
   :short_name: LAMSAT6
   :carga_masiva_name: LAM SATEN 6
@@ -168,6 +172,19 @@
 - :id: 600
   :alternative_names:
     - 600 - reflect float clear 4mm
+    - reflect float clear 4mm
   :especial: true
   :short_name: RFLT4
   :carga_masiva_name:
+- :id: 330
+  :alternative_names:
+    - 330 - low-e 04 mm
+  :especial: true
+  :short_name: LOWE4
+  :carga_masiva_name: LOW-E 4
+- :id: 999
+  :alternative_names:
+    - serigrafiado negro 6mm
+  :especial: true
+  :short_name: SRGF6
+  :carga_masiva_name: SERIGRAFIADO 6
