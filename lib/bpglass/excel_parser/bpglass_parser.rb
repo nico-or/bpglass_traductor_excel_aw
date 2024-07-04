@@ -16,14 +16,15 @@ module BPGlass
         forma: 'Forma'
       }.freeze
 
-      attr_reader :filepath
+      attr_reader :file, :filepath
 
       def initialize(filepath)
         @filepath = filepath
+        @file = Roo::Excelx.new(filepath)
       end
 
       def posiciones
-        @posiciones ||= entries.map { BPGlass::Posicion.from_hash(_1) }
+        @posiciones = entries.map { |hash| BPGlass::Posicion.from_hash(hash) }
       end
 
       def ot
@@ -39,13 +40,10 @@ module BPGlass
 
       private
 
-      def file
-        @file ||= Roo::Excelx.new(filepath)
-      end
-
       def entries
-        @entries ||= file.parse(ROO_MATCHER)
-                         .reject { |hash| ['', nil].include?(hash[:vidrio_1]) }
+        @entries = file
+                   .parse(ROO_MATCHER)
+                   .reject { |hash| ['', nil].include?(hash[:vidrio_1]) }
       end
     end
   end
